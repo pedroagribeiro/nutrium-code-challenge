@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   root "professionals#index"
 
   get "/professionals", to: "professionals#index"
+
+  get "/appointments", to: "appointments#index"
 end

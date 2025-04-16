@@ -1,0 +1,35 @@
+<div class="w-full min-h-screen bg-white px-10">
+
+  <%# Title and navigation bar %>
+  <div class="flex items-center justify-between m-6 text-gray-500">
+    <div>
+      <h1 class="text-2xl font-semibold">Pending Requests</h1>
+      <p class="text-sm">Accept or reject new pending requests</p>
+    </div>
+    <div class="flex items-center gap-4">
+      <div class="flex items-center gap-1">
+        <button class="px-2 py-1 rounded-xs border-1 border-gray-300 hover:bg-gray-200">
+          <%= heroicon "chevron-left", variant: :solid, class: "w-3 h-3 text-gray-600" %>
+        </button>
+        <button class="px-2 py-1 rounded-xs border-1 border-gray-300 hover:bg-gray-200">
+          <%= heroicon "chevron-right", variant: :solid, class: "w-3 h-3 text-gray-600" %>
+        </button>
+      </div>
+      <button class="px-2 py-1 rounded-xs border-1 border-gray-300 hover:bg-gray-200">
+        <%= heroicon "share", variant: :solid, class: "w-3 h-3 text-gray-600" %>
+      </button>
+      <button class="px-2 py-1 rounded-xs border-1 border-gray-300 hover:bg-gray-200">
+        <%= heroicon "arrow-path", variant: :solid, class: "w-3 h-3 text-gray-600" %>
+      </button>
+    </div>
+  </div>
+
+  <%# Pending requests %>
+  <div class="grid grid-cols-3 gap-4 px-10">
+    <%= render "appointment" %>
+    <%= render "appointment" %>
+    <%= render "appointment" %>
+    <%= render "appointment" %>
+  </div>
+
+</div>

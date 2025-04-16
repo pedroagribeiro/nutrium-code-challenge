@@ -1,8 +1,8 @@
 <div class="w-full bg-white rounded-sm p-8">
-    <div class="flex flex-col lg:flex-row lg:space-x-4">
+    <div class="flex flex-col gap-4 lg:gap-0 items-center lg:items-start lg:flex-row lg:space-x-4">
         <%# Profile picture  %>
-        <div class="w-[10%] h-[10%] rounded-full overflow-hidden">
-            <%= image_tag "lady-avatar.svg", alt: "Avatar", class: "w-full h-full object-cover" %>
+        <div class="max-w-[30%] lg:w-[10%]">
+            <%= image_tag "woman_avatar.svg", alt: "Avatar", class: "w-full h-auto rounded-full" %>
         </div>
         <%# Description %>
         <div class="flex flex-col flex-grow min-w-[60%]">
@@ -13,14 +13,11 @@
                 <h2 class="text-3xl font-semibold text-[#19af91] mt-1">Mary Jane</h2>
                 <p class="text-lg text-gray-500">Dietitian • 2963N</p>
             </div>
-            <div class="pt-12 flex flex-row flex-grow justify-between">
+            <div class="pt-12 flex flex-col lg:flex-row flex-grow justify-between">
                 <%# Location %>
-                <div class="w-1/2 flex flex-col space-y-4 tems-start text-lg">
+                <div class="w-1/2 flex flex-col space-y-3 tems-start text-lg">
                     <div class="flex items-center text-[#19af91] font-semibold">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-[#19af91]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 22s8-4.5 8-10c0-4.418-3.582-8-8-8S4 7.582 4 12c0 5.5 8 10 8 10z" />
-                        </svg>
+                        <%= heroicon "map-pin", variant: :outline, class: "w-6 h-6 text-[#19af91]" %>
                         <span>Online Follow-up</span>
                     </div>
                     <p class="text-gray-400">Rua de Leiria</p>
@@ -28,23 +25,19 @@
                  </div>
                  <%# Appointment price %>
                  <div class="flex flex-col w-1/2  space-y-4 items-start text-lg text-gray-400">
-                    <div class="flex items-center justify-end">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
-                        </svg>
+                    <div class="flex gap-2 items-center">
+                        <%= heroicon "briefcase", variant: :outline, class: "w-6 h-6 text-[#19af91]" %>
                         <span>First appointment</span>
                     </div>
-                    <div class="flex items-center justify-end">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 1.343-3 3h6c0-1.657-1.343-3-3-3z" />
-                        </svg>
+                    <div class="flex gap-2 items-center">
+                        <%= heroicon "banknotes", variant: :outline, class: "w-6 h-6 text-[#19af91]" %>
                         <span>€ 25.00</span>
                     </div>
                 </div>
             </div>
         </div>
         <%# Actions %>
-        <div class="w-[25%] space-y-2 text-lg font-medium">
+        <div class="w-full lg:w-[25%] space-y-2 text-lg font-medium">
             <button class="w-full bg-[#fae6e1] text-[#e6a179] py-2 rounded">Schedule appointment</button>
             <button class="w-full bg-[#dbf6e7] text-[#19af91] py-2 rounded">Website</button>
         </div>

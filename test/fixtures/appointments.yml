@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  date: 2025-04-16 22:04:25
+  status: 1
+
+two:
+  email: MyString
+  date: 2025-04-16 22:04:25
+  status: 1
