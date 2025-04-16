@@ -18,7 +18,7 @@ Implementation of the code challenge pruposed by Nutrium.
 
 ### 1. Nutritionist Search Page
 
-- [ ] Similar to the presented mockup.
+- [x] Similar to the presented mockup.
 - [ ] Search input (by name or service).
 - [ ] "Schedule appointment" button for each nutritionist.
     - [ ] Opens modal to collect: guest's name, email and desired appointment date and time.
@@ -26,7 +26,7 @@ Implementation of the code challenge pruposed by Nutrium.
 
 ### 2. Pending Appointment Requests Page (Nutritionist View)
 
-- [ ] Similar to the presented mockup.
+- [x] Similar to the presented mockup.
 - [ ] Implement using React.
 - [ ] Be able to "Accept" or "Reject" appointments.
 - [ ] Trigger email notification to the guest when the request is answered.
