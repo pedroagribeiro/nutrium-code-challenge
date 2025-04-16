@@ -1,0 +1,23 @@
+pt:
+  appointments:
+    index:
+      title: Pedidos Pendentes 
+      subtitle: Aceita ou rejeita novos pedidos pendentes
+    appointment:
+      type: Consulta online
+      date: 25 de dezembro de 2025
+      time: 09:30
+      action_button_title: Responde ao pedido
+  professionals:
+    nav:
+      teaser_1: És um profissional da nutrição?
+      teaser_2: Conhece o nosso software
+      general_search_box_title: Nome, serviço, marcação online...
+      location_search_box_title: Localização
+      search_button_title: Pesquisar
+    professional:
+      follow_up_title: ACOMPANHAMENTO 
+      category: Dietista
+      follow_up_type: Acompanhamento online
+      service: Primeira consulta
+      schedule_appointment: Marcar consulta

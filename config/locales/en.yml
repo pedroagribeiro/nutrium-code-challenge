@@ -28,4 +28,25 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  appointments:
+    index:
+      title: Pending Requests
+      subtitle: Accept or reject new pending requests
+    appointment:
+      type: Online appointment
+      date: 21st december 2025
+      time: 9:30 am
+      action_button_title: Answer request
+  professionals:
+    nav:
+      teaser_1: Are you a nutrition professional? 
+      teaser_2: Get to know our software 
+      general_search_box_title: Name, service, online appointment...
+      location_search_box_title: Location 
+      search_button_title: Search 
+    professional:
+      follow_up_title: FOLLOW-UP 
+      category: Dietist 
+      follow_up_type: Online Follow-Up 
+      service: First appointment 
+      schedule_appointment: Marcar consulta 

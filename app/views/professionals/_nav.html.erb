@@ -9,9 +9,9 @@
       </div>
       <%# Text on the rigth hand side %>
       <div class="flex flex-col lg:flex-row items-center text-white text-lg font-medium space-x-2">
-        <span>Are you a nutrition professional?</span>
+        <span><%= t ".teaser_1" %></span>
         <a href="#" class="underline hover:text-gray-100 flex items-center space-x-1">
-          <span>Get to know our software</span>
+          <span><%= t ".teaser_2" %></span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
           </svg>
@@ -25,10 +25,10 @@
   <div class="w-full bg-gradient-to-r from-[#31bb87] to-[#37a991] px-2">
     <div class="flex flex-col lg:flex-row items-center space-y-2 lg:space-y-0 lg:space-x-4 lg:px-8 py-6 bg-gradient-to-r from-[#32be8c] to-[#3cb496]">
       <%# Left search box %>
-      <input type="text" placeholder="Name, service, online appointment..." class="w-full bg-white text-gray-600 p-4 rounded-sm shadow-md focus:outline-none">
+      <input type="text" placeholder="<%= t ".general_search_box_title" %>" class="w-full bg-white text-gray-600 p-4 rounded-sm shadow-md focus:outline-none">
       <%# Middle search box %>
       <div class="relative w-full">
-        <input type="text" placeholder="Location" class="w-full bg-white text-gray-600 p-4 rounded-sm shadow-md pr-10 focus:outline-none" />
+        <input type="text" placeholder="<%= t ".location_search_box_title" %>" class="w-full bg-white text-gray-600 p-4 rounded-sm shadow-md pr-10 focus:outline-none" />
         <div class="absolute right-3 top-1/2 -translate-y-1/2 text-[#19af91] items-center">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-crosshair">
             <circle cx="12" cy="12" r="10" />
@@ -41,7 +41,7 @@
       </div>
       <%# Search button %>
       <button class="bg-[#e69b73] hover:bg-orange-500 text-white font-medium px-12 py-4 rounded-sm shadow-md">
-        Search
+        <%= t ".search_button_title" %>
       </button>
     </div>
   </div>

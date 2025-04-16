@@ -8,25 +8,25 @@
         <div class="flex flex-col space-y-6 text-gray-500 pt-2">
             <div class="gap-2">
                 <p class="text-2xl">Francisco Neves</p>
-                <p>Online appointment</p>
+                <p><%= t ".type" %></p>
             </div>
             <div class="gap-2">
                 <div class="flex flex-row space-x-2 items-center">
                     <div class="p-1 rounded-full bg-[#dcfaf0]">
                         <%= heroicon "calendar", variant: :outline, class: "w-4 h-4 text-[#19af91]" %>
                     </div>
-                    <p>21st december 2025</p>
+                    <p><%= t ".date" %></p>
                 </div>
                 <div class="flex flex-row space-x-2 items-center">
                     <div class="p-1 rounded-full bg-[#dcfaf0]">
                         <%= heroicon "clock", variant: :outline, class: "w-4 h-4 text-[#19af91]" %>
                     </div>
-                    <p>9:30 am</p>
+                    <p><%= t ".time" %></p>
                 </div>
             </div>
         </div>
     </div>
     <button class="text-[#20b194] text-lg font-semibold border-t-1 border-gray-300 py-3 bt-1 hover:bg-gray-100">
-        Answer request
+        <%= t ".action_button_title" %>
     </button>
 </div>

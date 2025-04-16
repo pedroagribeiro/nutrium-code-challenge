@@ -8,17 +8,17 @@
         <div class="flex flex-col flex-grow min-w-[60%]">
             <div class="flex flex-col flex-grow">
                 <div class="flex items-center space-x-2">
-                    <span class="text-sm text-[#19af91] bg-[#e6f8f4] px-4 py-2 rounded-full font-semibold">★ FOLLOW-UP</span>
+                    <span class="text-sm text-[#19af91] bg-[#e6f8f4] px-4 py-2 rounded-full font-semibold">★ <%= t ".follow_up_title" %></span>
                 </div>
                 <h2 class="text-3xl font-semibold text-[#19af91] mt-1">Mary Jane</h2>
-                <p class="text-lg text-gray-500">Dietitian • 2963N</p>
+                <p class="text-lg text-gray-500"><%= t ".category" %> • 2963N</p>
             </div>
             <div class="pt-12 flex flex-col lg:flex-row flex-grow justify-between">
                 <%# Location %>
                 <div class="w-1/2 flex flex-row gap-2 space-y-3 text-lg">
                     <%= heroicon "map-pin", variant: :outline, class: "w-6 h-6 text-[#19af91]" %>
                     <div class="flex flex-col gap-3">
-                        <p class="text-[#19af91] font-semibold">Online Follow-Up</p>
+                        <p class="text-[#19af91] font-semibold"><%= t ".follow_up_type" %></p>
                         <p class="text-gray-400">Rua de Leiria</p>
                         <p class="text-gray-400">Leiria</p>
                     </div>
@@ -27,7 +27,7 @@
                  <div class="flex flex-col w-1/2  space-y-4 items-start text-lg text-gray-400">
                     <div class="flex gap-2 items-center">
                         <%= heroicon "briefcase", variant: :outline, class: "w-6 h-6 text-[#19af91]" %>
-                        <span>First appointment</span>
+                        <span><%= t ".service" %></span>
                     </div>
                     <div class="flex gap-2 items-center">
                         <%= heroicon "banknotes", variant: :outline, class: "w-6 h-6 text-[#19af91]" %>
@@ -38,7 +38,7 @@
         </div>
         <%# Actions %>
         <div class="w-full lg:w-[25%] space-y-2 text-lg font-medium">
-            <button class="w-full bg-[#fae6e1] text-[#e6a179] py-2 rounded">Schedule appointment</button>
+            <button class="w-full bg-[#fae6e1] text-[#e6a179] py-2 rounded"><%= t ".schedule_appointment" %></button>
             <button class="w-full bg-[#dbf6e7] text-[#19af91] py-2 rounded">Website</button>
         </div>
     </div>
