@@ -1,24 +1,87 @@
-# README
+<div align="center">
+    <img src="app/assets/images/nutrium.webp" alt="delegatewise" width="350px">
+    <h1>Nutrium Code Challenge</h1>
+</div>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Implementation of the code challenge pruposed by Nutrium.
 
-Things you may want to cover:
+## Table of Contents
 
-* Ruby version
+- [About](#about)
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Setup](#setup)
+- [Usage](#usage)
+- [Running Tests](#running-tests)
+- [Deployment](#deployment)
 
-* System dependencies
+## About
 
-* Configuration
+This is my implementation of the code challenge, with the following goals
+accomplished:
 
-* Database creation
+- [x] Goal 1
+- [ ] Goal 2
 
-* Database initialization
+## Features
 
-* How to run the test suite
+- [x] Feature 1
+- [x] Feature 2
 
-* Services (job queues, cache servers, search engines, etc.)
+## 🚀 Getting Started
 
-* Deployment instructions
+This project uses settings configured in environment variables defined in the
+`.env` file. Use the `.env.sample` as a starting point.
 
-* ...
+```bash
+cp .env.sample .env
+```
+
+### Prerequisists
+
+Ensure you have the following installed:
+
+- Ruby (version x.x.x)
+- Rails (version x.x.x)
+- PostgreSQL
+- Node.js and Yarn (for managing JS dependencies)
+
+### Setup
+
+Clone the repo and install dependencies:
+
+```bash
+git clone https://github.com/your-username/project-name.git
+cd project-name
+bundle install
+npm install
+```
+
+Setup the database:
+
+```
+rails db:create
+rails db:migrate
+rails db:seed
+```
+
+## Usage
+
+Start the application server:
+
+```
+bin/rails server
+```
+
+Visit `http://localhost:3000` in your browser.
+
+## Running tests
+
+To run tests:
+
+```
+bin/rails test
+```
+
+## Deployment
+
