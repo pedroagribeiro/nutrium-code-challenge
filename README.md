@@ -5,9 +5,8 @@
 
 Implementation of the code challenge pruposed by Nutrium.
 
-## Table of Contents
+## 📜 Table of Contents
 
-- [About](#about)
 - [Features](#features)
 - [Getting Started](#getting-started)
 - [Setup](#setup)
@@ -15,18 +14,30 @@ Implementation of the code challenge pruposed by Nutrium.
 - [Running Tests](#running-tests)
 - [Deployment](#deployment)
 
-## About
+## ⚡ Features
 
-This is my implementation of the code challenge, with the following goals
-accomplished:
+### 1. Nutritionist Search Page
 
-- [x] Goal 1
-- [ ] Goal 2
+- [ ] Similar to the presented mockup.
+- [ ] Search input (by name or service).
+- [ ] "Schedule appointment" button for each nutritionist.
+    - [ ] Opens modal to collect: guest's name, email and desired appointment date and time.
+- [ ] "Personal Page" button (this can be left as a non-functional placeholder)
 
-## Features
+### 2. Pending Appointment Requests Page (Nutritionist View)
 
-- [x] Feature 1
-- [x] Feature 2
+- [ ] Similar to the presented mockup.
+- [ ] Implement using React.
+- [ ] Be able to "Accept" or "Reject" appointments.
+- [ ] Trigger email notification to the guest when the request is answered.
+
+### Extra-Mile Features (Optional)
+
+- [ ] **Testing:** Implement testing strategy (unit, feature...) for implemented features.
+- [ ] **Caching:** Implement a caching strategy for nutritionist search.
+- [ ] **Advanced Search:** Use external search engines or tools to enchance search capabilities.
+- [x] **Utility-First CSS:** Use frameworks like TailwindCSS for styling.
+- [ ] **Internationaliztion (i18n):** Support for multiple languages.
 
 ## 🚀 Getting Started
 
@@ -82,6 +93,3 @@ To run tests:
 ```
 bin/rails test
 ```
-
-## Deployment
-
