@@ -37,7 +37,7 @@ Implementation of the code challenge pruposed by Nutrium.
 - [ ] **Caching:** Implement a caching strategy for nutritionist search.
 - [ ] **Advanced Search:** Use external search engines or tools to enchance search capabilities.
 - [x] **Utility-First CSS:** Use frameworks like TailwindCSS for styling.
-- [ ] **Internationaliztion (i18n):** Support for multiple languages.
+- [x] **Internationaliztion (i18n):** Support for multiple languages.
 
 ## 🚀 Getting Started
 
