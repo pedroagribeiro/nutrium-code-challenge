@@ -1,0 +1,2 @@
+class ProfessionalCategory < ApplicationRecord
+end

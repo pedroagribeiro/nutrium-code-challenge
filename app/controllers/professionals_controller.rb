@@ -1,5 +1,5 @@
 class ProfessionalsController < ApplicationController
-  before_action :set_professional, only: %i[ show edit update ] 
+  before_action :set_professional, only: %i[ show edit update destroy ]
 
   def index
     @professionals = Professional.all
@@ -43,6 +43,6 @@ class ProfessionalsController < ApplicationController
     end
 
     def professional_params
-      params.expect(professional: [:name, :order_number])
+      params.expect(professional: [:name, :license_number, :professional_category_id])
     end
 end
