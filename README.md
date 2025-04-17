@@ -16,6 +16,8 @@ Implementation of the code challenge pruposed by Nutrium.
 
 ## ⚡ Features
 
+[] Seeder
+
 ### 1. Nutritionist Search Page
 
 - [x] Similar to the presented mockup.

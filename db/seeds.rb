@@ -1,9 +1,61 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+require 'faker'
+
+Appointment.destroy_all
+Service.destroy_all
+Professional.destroy_all
+ProfessionalCategory.destroy_all
+
+# Professional categories
+
+ProfessionalCategory.create([
+  { name: 'Nutritionist' },
+  { name: 'Dietist' }
+])
+
+p "Created #{ProfessionalCategory.count} professional categories"
+
+# Professionals
+# Create 100 different professionals
+
+100.times do
+  Professional.create(
+    name: Faker::Name.name,
+    license_number: Faker::Number.number(digits: 5),
+    professional_category_id: ProfessionalCategory.pluck(:id).sample
+  )
+end
+
+p "Created #{Professional.count} professionals"
+
+# Services
+# Create 300 services (3 per professional [in average])
+
+300.times do
+  Service.create(
+    name: Faker::Company.name,
+    price: Faker::Commerce.price,
+    address: Faker::Address.street_address,
+    city: Faker::Address.city,
+    professional_id: Professional.pluck(:id).sample
+  )
+end
+
+p "Created #{Service.count} services"
+
+# Appointments
+# Create 300 appointments (3 per professional [in average])
+
+300.times do
+  professional = Professional.find(Professional.pluck(:id).sample)
+  service = professional.services.sample
+
+  next unless service.present?
+
+  Appointment.create(
+    email: Faker::Internet.email,
+    date: Faker::Time.between(from: DateTime.now, to: DateTime.now + 30),
+    status: Faker::Number.between(from: 0, to: 2),
+    professional_id: professional.id,
+    service_id: service&.id
+  )
+end

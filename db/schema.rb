@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_17_150352) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_17_171131) do
   create_table "appointments", force: :cascade do |t|
     t.string "email"
     t.datetime "date"
@@ -18,13 +18,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_17_150352) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "professional_id", null: false
+    t.integer "service_id", null: false
     t.index ["professional_id"], name: "index_appointments_on_professional_id"
-  end
-
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["service_id"], name: "index_appointments_on_service_id"
   end
 
   create_table "professional_categories", force: :cascade do |t|
@@ -54,6 +50,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_17_150352) do
   end
 
   add_foreign_key "appointments", "professionals"
+  add_foreign_key "appointments", "services"
   add_foreign_key "professionals", "professional_categories"
   add_foreign_key "services", "professionals"
 end
