@@ -52,6 +52,7 @@ p "Created #{Service.count} services"
   next unless service.present?
 
   Appointment.create(
+    name: Faker::Name.name,
     email: Faker::Internet.email,
     date: Faker::Time.between(from: DateTime.now, to: DateTime.now + 30),
     status: Faker::Number.between(from: 0, to: 2),
@@ -59,3 +60,5 @@ p "Created #{Service.count} services"
     service_id: service&.id
   )
 end
+
+p "Created #{Appointment.count} appointments"

@@ -1,5 +1,6 @@
 class Appointment < ApplicationRecord
   belongs_to :professional
+  belongs_to :service
 
   validates :email, presence: true
   validates :date, presence: true
