@@ -20,12 +20,12 @@ Implementation of the code challenge pruposed by Nutrium.
 
 #### Guest Flow 
 
-- [ ] A guest can search nutritionists by:
-    - [ ] Nutritionist's name.
-    - [ ] Name of service provided.
-- [ ] A guest can requet an appointment with a selected nutritionist by:
-    - [ ] Providing their name and email.
-    - [ ] Selecting a date and time.
+- [x] A guest can search nutritionists by:
+    - [x] Nutritionist's name.
+    - [x] Name of service provided.
+- [x] A guest can request an appointment with a selected nutritionist by:
+    - [x] Providing their name and email.
+    - [x] Selecting a date and time.
 - [ ] A guest can only have one pending request at a time.
 - [x] Once a request is submitted, it will be marked as pending until is either
 accepted or rejected by a nutritionist.
@@ -46,13 +46,13 @@ guest **at the same time date and time** must be automatically rejected.
 
 - [x] Similar to the presented mockup.
 - Includes:
-    - [ ] A search input (by name or service).
-    - [ ] A results list of matching nutritionists.
+    - [x] A search input (by name or service).
+    - [x] A results list of matching nutritionists.
     - [x] A **"Schedule Appointment"** button for each nutritionist.
         - [x] Opens a modal to collect:
             - [x] Guest's name and email.
             - [x] Desired appointment date and time.
-    - [x] A "Personal Page" button (this can be left as non-functional) placeholder. 
+    - [x] A "Personal Page" button (this can be left as non-functional) placeholder.
 
 #### 2. Pending Appointment Requests Page (Nutritionist View)
 
@@ -72,7 +72,7 @@ requests.
 - [ ] **Testing:** Implement testing strategy (unit, feature...) for implemented
 features.
 - [ ] **Caching:** Implement a caching strategy for nutritionist search.
-- [ ] **Advanced Search:** Use external search engines or tools to enchance
+- [x] **Advanced Search:** Use external search engines or tools to enchance
 search capabilities.
 - [x] **Utility-First CSS:** Use frameworks like TailwindCSS for styling.
 - [ ] **Internationaliztion (i18n):** Support for multiple languages.
