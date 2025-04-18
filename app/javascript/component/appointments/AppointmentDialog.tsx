@@ -1,8 +1,10 @@
 import { CalendarDateRangeIcon, CheckCircleIcon, ClockIcon } from "@heroicons/react/24/outline"
 import ModalDialog from "../ui/ModalDialog"
 import { DialogTitle } from "@headlessui/react"
-import { Appointment } from "../../types/appointments.types"
+import { Appointment, AppointmentStatus } from "../../types/appointments.types"
 import { dateToCalendarDate, dateToClockTime } from "../../utils/date"
+import React from "react"
+import { router } from "@inertiajs/react"
 
 type AppointmentDialogProps = {
     isOpen: boolean
@@ -11,6 +13,32 @@ type AppointmentDialogProps = {
 }
 
 const AppointmentDialog: React.FC<AppointmentDialogProps> = ({ isOpen, setOpen, appointment }) => {
+    const [processing, setProcessing] = React.useState(false)
+
+    const handleReject = () => {
+        setProcessing(true)
+
+        router.visit(`/appointments/${appointment.id}`, {
+            method: "put",
+            data: { id: appointment.id, status: AppointmentStatus.Rejected },
+            preserveScroll: true,
+            preserveState: true,
+            onSuccess: () => {
+                alert("success")
+            },
+            onError: () => {
+                alert("error")
+            },
+            onStart: () => {
+                setProcessing(true)
+            },
+            onFinish: () => {
+                setProcessing(false)
+                setOpen(false)
+            }
+        })
+    }
+
     return (
         <ModalDialog isOpen={isOpen} setOpen={setOpen}>
             <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
@@ -57,6 +85,13 @@ const AppointmentDialog: React.FC<AppointmentDialogProps> = ({ isOpen, setOpen, 
                     className="inline-flex w-full justify-center rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-red-500 sm:ml-3 sm:w-auto"
                 >
                     Deactivate
+                </button>
+                <button
+                    className="inline-flex w-full justify-center rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-red-500 sm:ml-3 sm:w-auto"
+                    onClick={handleReject}
+                    disabled={processing}
+                >
+                    Reject
                 </button>
                 <button
                     type="button"

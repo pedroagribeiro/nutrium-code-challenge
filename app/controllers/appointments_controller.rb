@@ -12,4 +12,50 @@ class AppointmentsController < ApplicationController
       appointments: appointments.as_json(include: [:professional, :service])
     }
   end
+
+  def update
+    if params[:id].blank?
+      return render inertia: 'Appointments/Index', props: {
+        errors: ['ID is required']
+      }, status: :unprocessable_entity
+    end
+
+    if appointment_update_params.empty?
+      return render inertia: 'Appointments/Index', props: {
+        errors: ['No fields provided for update']
+      }, status: :unprocessable_entity
+    end
+
+    appointment = Appointment.find(params[:id])
+    unless appointment
+      return render inertia: 'Appointments/Index', props: {
+        errors: ['Appointment not found']
+      }, status: :not_found
+    end
+
+    if appointment.update(appointment_update_params)
+      send_status_email(appointment)
+      return render inertia: 'Appointments/Index', props: {
+        updatedAppointment: appointment.as_json(include: [:professional, :service])
+      }
+    else
+      return render inertia: 'Appointments/Index', props: {
+        errors: appointment.errors.full_messages
+      }, status: :unprocessable_entity
+    end
+  end
+
+  private
+    def appointment_params
+      params.expect(appointment: [:name, :email, :date, :time, :professional_id, :service_id])
+    end
+
+    def appointment_update_params
+      params.require(:appointment).permit(:status)
+    end
+
+    def send_status_email(appointment)
+      AppointmentsMailer.status_update(appointment).deliver_later
+    end
+
 end

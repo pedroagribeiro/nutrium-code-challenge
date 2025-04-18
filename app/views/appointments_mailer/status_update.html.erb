@@ -1,0 +1,5 @@
+<% status_label = { 0 => 'Pending', 1 => 'Accepted', 2 => 'Rejected' }[@appointment.status] %>
+
+<h1>Hello <%= @appointment.name %>,</h1>
+
+<p>The status of your appointment scheduling with id: <%= @appointment.id %> has been updated to: <strong><%= status_label %></strong>.</p>

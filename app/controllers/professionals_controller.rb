@@ -52,4 +52,5 @@ class ProfessionalsController < ApplicationController
     def professional_params
       params.expect(professional: [:name, :license_number, :professional_category_id])
     end
+
 end
