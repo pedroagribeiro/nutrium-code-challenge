@@ -2,7 +2,13 @@ class ProfessionalsController < ApplicationController
   before_action :set_professional, only: %i[ show edit update destroy ]
 
   def index
-    professionals = Professional.includes(:professional_category, :services).all
+    if params[:search].present?
+      response = Professional.search_by_name_services_and_license_number(params[:search])
+      professionals = response.records.includes(:professional_category, :services)
+    else
+      professionals = Professional.includes(:professional_category, :services).all
+    end
+
     render inertia: 'Professionals/Index', props: {
       professionals: professionals.as_json(include: [:professional_category, :services])
     }

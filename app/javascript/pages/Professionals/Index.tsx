@@ -3,6 +3,7 @@ import SearchPageLayout from "../../layout/SearchPageLayout";
 import type { Professional } from "../../types/professionals.types"
 import ProfessionalComponent from "../../component/professionals/Professional";
 import Paginator from "../../component/navigation/Paginator";
+import { router } from "@inertiajs/react";
 
 type IndexProps = {
     professionals: Professional[]
@@ -10,10 +11,40 @@ type IndexProps = {
 
 const Index: React.FC<IndexProps> = ({ professionals }) => {
     const [professional, setProfessional] = React.useState<number>(1);
+    const [searchTerm, setSearchTerm] = React.useState<string>("");
+    const [location, setLocation] = React.useState<string>("");
+    const [isLoading, setIsLoading] = React.useState<boolean>(false);
+
+    const performSearch = () => {
+        const data: { search?: string; location?: string } = {};
+        if (searchTerm !== "") {
+            data.search = searchTerm;
+        }
+        if (location !== "") {
+            data.location = location;
+        }
+
+        router.visit('/professionals', {
+            method: 'get',
+            data,
+            preserveState: true,
+            replace: true,
+            onStart: () => {
+                setIsLoading(true);
+            },
+            onFinish: () => {
+                setIsLoading(false);
+            }
+        });
+    }
+
+    if (isLoading || professionals.length === 0) {
+        return <p>Loading</p>
+    }
 
     return (
-        <SearchPageLayout>
-            <ProfessionalComponent {...professionals[professional]} />
+        <SearchPageLayout setSearchTerm={setSearchTerm} setLocation={setLocation} performSearch={performSearch}>
+            {professionals !== undefined && <ProfessionalComponent {...professionals[professional]} />}
             {professionals.length > 0 &&
                 <Paginator
                     pageCount={professionals.length}
