@@ -1,4 +1,9 @@
+require 'elasticsearch/model'
+
 class Professional < ApplicationRecord
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   has_many :services, dependent: :destroy
   has_many :appointments, dependent: :destroy
   belongs_to :professional_category
