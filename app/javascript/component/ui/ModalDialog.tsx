@@ -8,7 +8,6 @@ type ModalDialogProps = {
 }
 
 const ModalDialog: React.FC<ModalDialogProps> = ({ children, isOpen, setOpen }) => {
-
     return (
         <Dialog open={isOpen} onClose={() => setOpen(false)} className="relative z-10">
             <DialogBackdrop

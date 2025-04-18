@@ -46,6 +46,7 @@ const ProfessionalComponent: React.FC<Professional> = ({ id, name, license_numbe
             <ScheduleAppointmentDialog
                 isOpen={scheduleAppointmentDialogOpen}
                 setOpen={setScheduleAppointmentDialogOpen}
+                professionalId={id}
                 services={services}
             />
         </div>

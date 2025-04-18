@@ -5,13 +5,14 @@ import ScheduleAppointmentForm from "./ScheduleAppointmentForm";
 type ScheduleAppointmentDialogProps = {
     isOpen: boolean;
     setOpen: (open: boolean) => void;
+    professionalId: number
     services: Service[]
 }
 
-const ScheduleAppointmentDialog: React.FC<ScheduleAppointmentDialogProps> = ({ isOpen, setOpen, services }) => {
+const ScheduleAppointmentDialog: React.FC<ScheduleAppointmentDialogProps> = ({ isOpen, setOpen, professionalId, services }) => {
     return (
         <ModalDialog isOpen={isOpen} setOpen={setOpen}>
-            <ScheduleAppointmentForm services={services}/>
+            <ScheduleAppointmentForm professionalId={professionalId} services={services}/>
         </ModalDialog>
     )
 }

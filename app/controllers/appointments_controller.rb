@@ -13,6 +13,21 @@ class AppointmentsController < ApplicationController
     }
   end
 
+  def create
+    appointment = Appointment.new(appointment_params)
+    appointment.status = 0
+
+    if appointment.save
+      render inertia: 'Appointments/Index', props: {
+        newAppointment: appointment.as_json(include: [:professional, :service])
+      }, status: :created
+    else
+      render inertia: 'Appointments/Index', props: {
+        errors: appointment.errors.full_messages
+      }, status: :unprocessable_entity
+    end
+  end
+
   def update
     if params[:id].blank?
       return render inertia: 'Appointments/Index', props: {
@@ -47,7 +62,7 @@ class AppointmentsController < ApplicationController
 
   private
     def appointment_params
-      params.expect(appointment: [:name, :email, :date, :time, :professional_id, :service_id])
+      params.require(:appointment).permit(:name, :email, :date, :professional_id, :service_id)
     end
 
     def appointment_update_params

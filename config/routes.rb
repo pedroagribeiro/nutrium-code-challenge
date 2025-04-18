@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   get "/professionals/:id", to: "professionals#show"
 
   get "/appointments", to: "appointments#index"
+  post "/appointments", to: "appointments#create"
   put "/appointments/:id", to: "appointments#update"
 end

@@ -1,23 +1,57 @@
 import { useForm } from "@inertiajs/react";
 import { Service } from "../../types/services.types";
+import moment from "moment";
+import React from "react";
 
 type ScheduleAppointmentFormData = {
+    professionalId: number
     services: Service[]
 }
 
-const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({ services }) => {
-    const { data, setData, post, processing, errors } = useForm({
+const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({ professionalId, services }) => {
+    const [alertOpen, setAlertOpen] = React.useState(false)
+    const [success, setSuccess] = React.useState(false)
+
+    const { data, setData, post, processing, errors, transform } = useForm({
         name: "",
         email: "",
         date: "",
         time: "",
-        service: "",
+        professional_id: "",
+        service_id: services[0].id,
     })
 
+    transform((data) => {
+        const dateTimeString = `${data.date}T${data.time}`;
+        const momentDate = moment(dateTimeString);
+        console.log(data)
+        return {
+            ...data,
+            professional_id: professionalId,
+            date: momentDate,
+        }
+    })
 
     const submit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        alert(`Appointment scheduled for ${data.name} on ${data.date} at ${data.time} for ${data.service}.`);
+
+        post("/appointments", {
+            only: ['newAppointment'],
+            preserveUrl: true,
+            replace: true,
+            preserveScroll: true,
+            preserveState: true,
+            onSuccess: () => {
+                setSuccess(true)
+            },
+            onError: (errors) => {
+                console.log(errors)
+                setSuccess(false)
+            },
+            onFinish: () => {
+                setAlertOpen(true)
+            }
+        })
     }
 
     return (
@@ -102,27 +136,17 @@ const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({ servic
                     </label>
                 </div>
                 <div className="md:w-full">
-                    {/* <input
-                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#19af91]"
-                        id="service"
-                        type="service"
-                        value={data.service}
-                        onChange={(e) => setData('service', e.target.value)}
-                    /> */}
                     <select
                         className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         id="service"
-                        value={data.service}
-                        onChange={(e) => setData('service', e.target.value)}
+                        value={data.service_id}
+                        onChange={(e) => setData('service_id', Number(e.target.value))}
                     >
                         {services.map((service) => (
                             <option key={service.id} value={service.id}>
                                 {service.name}
                             </option>
                         ))}
-                        {/* <option value={1}>New Mexico</option>
-                        <option value={2}>Missouri</option>
-                        <option value={3}>Texas</option> */}
                     </select>
                 </div>
             </div>
