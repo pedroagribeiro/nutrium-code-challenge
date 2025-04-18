@@ -2,20 +2,15 @@ import React from "react";
 import { Appointment } from "../../types/appointments.types";
 import ManAvatar from "../../assets/man_avatar.svg"
 import { CalendarDateRangeIcon, ClockIcon } from "@heroicons/react/24/outline";
-import moment from "moment";
+import AppointmentDialog from "./AppointmentDialog";
+import { dateToCalendarDate, dateToClockTime } from "../../utils/date"
 
 type AppointmentProps = {
     appointment: Appointment
 }
 
 const AppointmentComponent: React.FC<AppointmentProps> = ({ appointment }) => {
-    const dateToCalendarDate = (date: Date) => {
-        return moment(date).format("do MMMM YYYY");
-    }
-
-    const dateToClockTime = (date: Date) => {
-        return moment(date).format("h:mm a");
-    }
+    const [dialogOpen, setDialogOpen] = React.useState(false);
 
     return (
         <div className="flex flex-col rounded-sm border-1 border-gray-300">
@@ -47,9 +42,14 @@ const AppointmentComponent: React.FC<AppointmentProps> = ({ appointment }) => {
                 </div>
             </div>
             <div className="flex flex-col flex-grow" />
-            <button className="text-[#20b194] text-lg font-semibold border-t-1 border-gray-300 py-3 bt-1 hover:bg-gray-100">
+            <button onClick={() => setDialogOpen(!dialogOpen)} className="text-[#20b194] text-lg font-semibold border-t-1 border-gray-300 py-3 bt-1 hover:bg-gray-100">
                 Answer request
             </button>
+            <AppointmentDialog
+                isOpen={dialogOpen}
+                setOpen={setDialogOpen}
+                appointment={appointment}
+            />
         </div>
     )
 }
