@@ -3,8 +3,9 @@ import WomanAvatar from "../../assets/woman_avatar.svg";
 import Services from "./Services";
 import { useState } from "react";
 import ScheduleAppointmentDialog from "../appointments/ScheduleAppointmentDialog";
+import { Link } from "@inertiajs/react";
 
-const ProfessionalComponent: React.FC<Professional> = ({ name, license_number, professional_category, services }: Professional) => {
+const ProfessionalComponent: React.FC<Professional> = ({ id, name, license_number, professional_category, services }: Professional) => {
     const [serviceIndex, setServiceIndex] = useState<number>(0);
     const [scheduleAppointmentDialogOpen, setScheduleAppointmentDialogOpen] = useState<boolean>(false);
 
@@ -35,7 +36,11 @@ const ProfessionalComponent: React.FC<Professional> = ({ name, license_number, p
                     >
                         Schedule appointment
                     </button>
-                    <button className="w-full bg-[#dbf6e7] text-[#19af91] py-2 rounded">Website</button>
+                    <button className="w-full bg-[#dbf6e7] text-[#19af91] py-2 rounded">
+                        <Link href={`/professionals/${id}`} className="text-[#19af91]">
+                            Website
+                        </Link>
+                    </button>
                 </div>
             </div>
             <ScheduleAppointmentDialog

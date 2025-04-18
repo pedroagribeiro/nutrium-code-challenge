@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   root "professionals#index"
 
   get "/professionals", to: "professionals#index"
+  get "/professionals/:id", to: "professionals#show"
 
   get "/appointments", to: "appointments#index"
 end

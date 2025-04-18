@@ -9,6 +9,10 @@ class ProfessionalsController < ApplicationController
   end
 
   def show
+    professional = Professional.includes(:professional_category, :services).find(params[:id])
+    render inertia: 'Professionals/Show', props: {
+      professional: professional.as_json(include: [:professional_category, :services])
+    }
   end
 
   def new
@@ -42,7 +46,7 @@ class ProfessionalsController < ApplicationController
 
   private
     def set_professional
-      @professional = Professional.find(params[:id])
+      professional = Professional.find(params[:id])
     end
 
     def professional_params
