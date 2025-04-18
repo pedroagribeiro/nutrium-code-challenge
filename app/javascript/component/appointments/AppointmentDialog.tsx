@@ -23,6 +23,8 @@ const AppointmentDialog: React.FC<AppointmentDialogProps> = ({ isOpen, setOpen, 
             data: { id: appointment.id, status: AppointmentStatus.Rejected },
             preserveScroll: true,
             preserveState: true,
+            only: ["updateAppointment"],
+            preserveUrl: true,
             onSuccess: () => {
                 alert("success")
             },

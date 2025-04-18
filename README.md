@@ -16,30 +16,79 @@ Implementation of the code challenge pruposed by Nutrium.
 
 ## ⚡ Features
 
-- [x] Seeder
+### Core Requirements
 
-### 1. Nutritionist Search Page
+#### Guest Flow 
+
+- [ ] A guest can search nutritionists by:
+    - [ ] Nutritionist's name.
+    - [ ] Name of service provided.
+- [ ] A guest can requet an appointment with a selected nutritionist by:
+    - [ ] Providing their name and email.
+    - [ ] Selecting a date and time.
+- [ ] A guest can only have one pending request at a time.
+- [x] Once a request is submitted, it will be marked as pending until is either
+accepted or rejected by a nutritionist.
+- [ ] If a request is accepted, all **other pending requests** for the same
+guest **at the same time date and time** must be automatically rejected.
+- [x] Guests should receive an email notification when their request is answered
+(accepted or rejected).
+
+#### Nutritionist Flow
+
+- [x] A nutritionist can view a list of appointment requests.
+- [x] The nutritionist can **accept or reject** each request.
+- [x] When a decision is made, the guest is notified via email.
+
+### Pages to Implement
+
+#### 1. Nutritionist Search Page
 
 - [x] Similar to the presented mockup.
-- [ ] Search input (by name or service).
-- [ ] "Schedule appointment" button for each nutritionist.
-    - [ ] Opens modal to collect: guest's name, email and desired appointment date and time.
-- [ ] "Personal Page" button (this can be left as a non-functional placeholder)
+- Includes:
+    - [ ] A search input (by name or service).
+    - [ ] A results list of matching nutritionists.
+    - [x] A **"Schedule Appointment"** button for each nutritionist.
+        - [x] Opens a modal to collect:
+            - [x] Guest's name and email.
+            - [x] Desired appointment date and time.
+    - [x] A "Personal Page" button (this can be left as non-functional) placeholder. 
 
-### 2. Pending Appointment Requests Page (Nutritionist View)
+#### 2. Pending Appointment Requests Page (Nutritionist View)
 
 - [x] Similar to the presented mockup.
-- [ ] Implement using React.
-- [ ] Be able to "Accept" or "Reject" appointments.
-- [ ] Trigger email notification to the guest when the request is answered.
+- [x] A page where the a nutritionist can view all incoming appointment
+requests.
+- [x] **Must be implemented using a Javascript Framework (React recommended)**
+- [x] Authentication is not required.
+- For each request, show:
+    - [x] Guest information.
+    - [x] Request date/time.
+    - [x] Actions: **Accept** or **Reject**.
+- [x] Trigger email notification to the guest when the request is answered.
 
 ### Extra-Mile Features (Optional)
 
-- [ ] **Testing:** Implement testing strategy (unit, feature...) for implemented features.
+- [ ] **Testing:** Implement testing strategy (unit, feature...) for implemented
+features.
 - [ ] **Caching:** Implement a caching strategy for nutritionist search.
-- [ ] **Advanced Search:** Use external search engines or tools to enchance search capabilities.
+- [ ] **Advanced Search:** Use external search engines or tools to enchance
+search capabilities.
 - [x] **Utility-First CSS:** Use frameworks like TailwindCSS for styling.
-- [x] **Internationaliztion (i18n):** Support for multiple languages.
+- [ ] **Internationaliztion (i18n):** Support for multiple languages.
+
+### Utilities
+
+- [ ] Submit your solution as a **public Git repository** (GitHub, GitLab,
+Bitbucket).
+- [ ] Include a `README.md` file with:
+    - [ ] Setup instructions.
+    - [ ] How to run the application.
+    - [ ] Any other relevant notes or decisions.
+- [x] Include *seeds* that:
+    - Create multiple nutritionists.
+    - Assign services with different prices and locations.
+    - Allow search functionality to be tested immediatly.
 
 ## 🚀 Getting Started
 
