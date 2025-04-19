@@ -1,12 +1,20 @@
-import {
-  ArrowPathIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  ShareIcon,
-} from '@heroicons/react/24/outline';
+import { ArrowPathIcon, ShareIcon } from '@heroicons/react/24/outline';
 import { useTranslation } from 'react-i18next';
+import AppointmentPaginator from '../navigation/AppointmentPaginator';
 
-const AppointmentsBar = () => {
+type AppointmentsBarProps = {
+  setPreviousPage: () => void;
+  setNextPage: () => void;
+  existsPreviousPage: () => boolean;
+  existsNextPage: () => boolean;
+};
+
+const AppointmentsBar: React.FC<AppointmentsBarProps> = ({
+  setPreviousPage,
+  setNextPage,
+  existsPreviousPage,
+  existsNextPage,
+}) => {
   const { t } = useTranslation();
 
   return (
@@ -16,14 +24,12 @@ const AppointmentsBar = () => {
         <p className="text-sm">{t('appointments.subtitle')}</p>
       </div>
       <div className="flex items-center gap-4">
-        <div className="flex items-center gap-1">
-          <button className="px-2 py-1 rounded-xs border-1 border-gray-300 hover:bg-gray-200">
-            <ChevronLeftIcon className="w-3 h-3 text-gray-600" />
-          </button>
-          <button className="px-2 py-1 rounded-xs border-1 border-gray-300 hover:bg-gray-200">
-            <ChevronRightIcon className="w-3 h-3 text-gray-600" />
-          </button>
-        </div>
+        <AppointmentPaginator
+          setPrevious={setPreviousPage}
+          existsPrevious={existsPreviousPage}
+          setNext={setNextPage}
+          existsNext={existsNextPage}
+        />
         <button className="px-2 py-1 rounded-xs border-1 border-gray-300 hover:bg-gray-200">
           <ShareIcon className="w-3 h-3 text-gray-600" />
         </button>
