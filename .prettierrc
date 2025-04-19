@@ -1,0 +1,22 @@
+{
+  "semi": true,
+  "singleQuote": false,
+  "trailingComma": "all",
+  "printWidth": 100,
+  "tabWidth": 2,
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "jsxSingleQuote": false,
+  "jsxBracketSameLine": false,
+  "proseWrap": "preserve",
+  "quoteProps": "as-needed",
+  "endOfLine": "lf",
+  "overrides": [
+    {
+      "files": ["*.js", "*.ts", ".jsx", "*.tsx"],
+      "options": {
+        "singleQuote": true
+      }
+    }
+  ]
+}
