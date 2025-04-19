@@ -20,7 +20,8 @@
       "reject": "Rejeitar"
     },
     "updateAlert": {
-      "error": "Ocorreu um erro do nosso lado e não foi possível atualizar a marcação.",
+      "sucess": "O estado da marcação foi atualizado com sucesso",
+      "error": "Não foi possível atualizar o estado da marcação.",
       "forward": "Percebido, obrigado!"
     },
     "scheduleForm": {

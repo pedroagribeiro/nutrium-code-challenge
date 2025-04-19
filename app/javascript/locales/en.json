@@ -20,7 +20,8 @@
       "reject": "Reject"
     },
     "updateAlert": {
-      "error": "Decide wether you want to accept or decline the appointment request.",
+      "success": "Successfuly updated the status of the appointment",
+      "error": "Could not update the status of the appointment",
       "forward": "Got it, thanks!"
     },
     "scheduleForm": {
