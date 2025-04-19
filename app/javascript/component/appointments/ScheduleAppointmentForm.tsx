@@ -26,7 +26,6 @@ const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({ profes
     transform((data) => {
         const dateTimeString = `${data.date}T${data.time}`;
         const momentDate = moment(dateTimeString);
-        console.log(data)
         return {
             ...data,
             professional_id: professionalId,
@@ -47,7 +46,6 @@ const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({ profes
                 setSuccess(true)
             },
             onError: (errors) => {
-                console.log(errors)
                 setSuccess(false)
             },
             onFinish: () => {

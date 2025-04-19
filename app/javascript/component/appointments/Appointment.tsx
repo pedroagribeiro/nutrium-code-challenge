@@ -5,6 +5,7 @@ import { CalendarDateRangeIcon, ClockIcon } from "@heroicons/react/24/outline";
 import AppointmentDialog from "./AppointmentDialog";
 import { dateToCalendarDate, dateToClockTime } from "../../utils/date"
 import { useTranslation } from "react-i18next";
+import i18n from "../../utils/i18n";
 
 type AppointmentProps = {
     appointment: Appointment
