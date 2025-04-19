@@ -29,15 +29,15 @@ const LocaleSwitcher = () => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute z-10 mt-2 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
+        <Menu.Items className="absolute z-10 mt-2 origin-top-right divide-y divide-gray-100 rounded-sm bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
             <div className="px-1 py-1 font-bold">
             {availableLanguages.map((locale) => (
                 <Menu.Item key={locale}>
                 {({ active }) => (
                 <button
                     className={`${
-                    active ? 'bg-[#19af91] text-white' : 'text-gray-500'
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    active ? 'text-[#19af91] ' : 'text-gray-500'
+                    } group flex w-full items-center rounded-sm px-2 py-2 text-sm`}
                     onClick={() => {
                     i18n.changeLanguage(locale);
                     localStorage.setItem('locale', locale);

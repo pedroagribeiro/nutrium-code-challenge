@@ -24,6 +24,8 @@
             "forward": "Percebido, obrigado!"
         },
         "scheduleForm": {
+             "title": "Marcar consulta",
+            "description": "Submete o teu pedido de consulta e o professional de saúde vai analisa-lo. Depois disso a plataforma enviar-te-á um email - a rejeitar ou a confirmar o pedido.",
             "name": "Nome",
             "date": "Data",
             "time": "Hora",

@@ -60,14 +60,14 @@ const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({ profes
         <form onSubmit={submit} className="flex flex-col items-center justify-center w-full p-8">
 
             <div className="w-full md:flex md:items-center mb-6">
-                <div className="md:w-1/4">
+                <div className="flex justify-start md:w-1/4">
                     <label htmlFor="name" className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
                         {t('appointments.scheduleForm.name')}
                     </label>
                 </div>
                 <div className="md:w-full">
                     <input
-                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#19af91]"
+                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded rounded-sm w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#19af91]"
                         id="name"
                         type="text"
                         value={data.name}
@@ -78,7 +78,7 @@ const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({ profes
             {errors.name && <div>{errors.name}</div>}
 
             <div className="w-full md:flex md:items-center mb-6">
-                <div className="md:w-1/4">
+                <div className="flex justify-start md:w-1/4">
                     <label htmlFor="email" className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
                         Email
                     </label>
@@ -96,7 +96,7 @@ const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({ profes
             {errors.email && <div>{errors.email}</div>}
 
             <div className="w-full md:flex md:items-center mb-6">
-                <div className="md:w-1/4">
+                <div className="flex justify-start md:w-1/4">
                     <label htmlFor="date" className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
                         {t('appointments.scheduleForm.date')}
                     </label>
@@ -114,7 +114,7 @@ const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({ profes
             {errors.date && <div>{errors.date}</div>}
 
             <div className="w-full md:flex md:items-center mb-6">
-                <div className="md:w-1/4">
+                <div className="flex justify-start md:w-1/4">
                     <label htmlFor="time" className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
                         {t('appointments.scheduleForm.time')}
                     </label>
@@ -132,7 +132,7 @@ const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({ profes
             {errors.time && <div>{errors.time}</div>}
 
             <div className="w-full md:flex md:items-center mb-6">
-                <div className="md:w-1/4">
+                <div className="flex justify-start md:w-1/4">
                     <label htmlFor="service" className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
                             {t('appointments.scheduleForm.service')}
                     </label>
@@ -156,7 +156,7 @@ const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({ profes
 
 
 
-            <button type="submit" disabled={processing} className="bg-[#19af91] text-white py-2 px-4 rounded-sm">
+            <button type="submit" disabled={processing} className="bg-[#19af91] text-white py-2 px-4 mt-8 font-bold rounded-sm">
                 {t('appointments.scheduleForm.button')}
             </button>
         </form>

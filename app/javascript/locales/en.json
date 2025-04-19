@@ -24,6 +24,8 @@
             "forward": "Got it, thanks!"
         },
         "scheduleForm": {
+            "title": "Schedule appointment",
+            "description": "Submit your appointment scheduling request and the health professional will then analyse it. When that happens the platform will send you an email - confirming or rejecting you request.",
             "name": "Nome",
             "date": "Data",
             "time": "Hora",

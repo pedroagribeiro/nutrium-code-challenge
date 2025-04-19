@@ -46,7 +46,7 @@ const Searchbar: React.FC<SearchbarProps> = ({ setSearchTerm, setLocation, perfo
                     <input
                         type="text"
                         placeholder={t('appointments.searchbar.searchTermPlaceholder')}
-                        className="w-full bg-white text-gray-600 p-4 rounded-sm shadow-md focus:outline-none"
+                        className="w-full bg-white border-none text-gray-600 p-4 rounded-sm shadow-md focus:ring-0"
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
                     {/* Middle search box */}
@@ -54,7 +54,7 @@ const Searchbar: React.FC<SearchbarProps> = ({ setSearchTerm, setLocation, perfo
                         <input
                             type="text"
                             placeholder={t('appointments.searchbar.locationPlaceholder')}
-                            className="w-full bg-white text-gray-600 p-4 rounded-sm shadow-md pr-10 focus:outline-none" 
+                            className="w-full bg-white border-none text-gray-600 p-4 rounded-sm shadow-md pr-10 focus:ring-0"
                             onChange={(e) => setLocation(e.target.value)}
                         />
                         <div className="absolute right-3 top-1/2 -translate-y-1/2 text-[#19af91] items-center">
@@ -63,7 +63,7 @@ const Searchbar: React.FC<SearchbarProps> = ({ setSearchTerm, setLocation, perfo
                     </div>
                     {/* Search button */}
                     <button
-                        className="bg-[#e69b73] hover:bg-orange-500 text-white font-medium px-12 py-4 rounded-sm shadow-md"
+                        className="w-full lg:w-[20%] bg-[#e69b73] hover:bg-[#e68f60] text-white font-medium px-12 py-4 rounded-sm shadow-md"
                         onClick={performSearch}
                     >
                         {t('appointments.searchbar.button')}
