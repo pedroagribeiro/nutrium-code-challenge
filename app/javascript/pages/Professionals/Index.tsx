@@ -4,6 +4,7 @@ import type { Professional } from '../../types/professionals.types';
 import ProfessionalComponent from '../../component/professionals/Professional';
 import Paginator from '../../component/navigation/Paginator';
 import { router } from '@inertiajs/react';
+import Loading from '../../component/ui/Loading';
 
 type IndexProps = {
   professionals: Professional[];
@@ -38,9 +39,36 @@ const Index: React.FC<IndexProps> = ({ professionals }) => {
     });
   };
 
-  if (isLoading || professionals.length === 0) {
-    return <p>Loading</p>;
-  }
+  const displayResults = () => {
+    if (professionals.length > 0) {
+      return (
+        <>
+          <ProfessionalComponent {...professionals[professional]} />
+          <Paginator
+            pageCount={professionals.length}
+            currentPage={professional}
+            setPrevious={() => {
+              const previous = professional - 1;
+              if (previous < 1) {
+                setProfessional(1);
+              } else {
+                setProfessional(previous);
+              }
+            }}
+            setNext={() => {
+              const next = professional + 1;
+              if (next > professionals.length) {
+                setProfessional(professionals.length);
+              } else {
+                setProfessional(next);
+              }
+            }}
+            setPage={(page: number) => setProfessional(page)}
+          />
+        </>
+      );
+    }
+  };
 
   return (
     <SearchPageLayout
@@ -48,30 +76,7 @@ const Index: React.FC<IndexProps> = ({ professionals }) => {
       setLocation={setLocation}
       performSearch={performSearch}
     >
-      {professionals !== undefined && <ProfessionalComponent {...professionals[professional]} />}
-      {professionals.length > 0 && (
-        <Paginator
-          pageCount={professionals.length}
-          currentPage={professional}
-          setPrevious={() => {
-            const previous = professional - 1;
-            if (previous < 1) {
-              setProfessional(1);
-            } else {
-              setProfessional(previous);
-            }
-          }}
-          setNext={() => {
-            const next = professional + 1;
-            if (next > professionals.length) {
-              setProfessional(professionals.length);
-            } else {
-              setProfessional(next);
-            }
-          }}
-          setPage={(page: number) => setProfessional(page)}
-        />
-      )}
+      {isLoading ? <Loading message="Loading..." /> : displayResults()}
     </SearchPageLayout>
   );
 };

@@ -20,7 +20,9 @@ const SearchPageLayout: React.FC<SearchPageLayoutProps> = ({
         setLocation={setLocation}
         performSearch={performSearch}
       />
-      <div className="flex flex-col justify-center space-y-8 px-2 lg:px-10 my-6">{children}</div>
+      <div className="flex flex-col flex-1 justify-start space-y-8 px-2 lg:px-10 my-6">
+        {children}
+      </div>
     </div>
   );
 };

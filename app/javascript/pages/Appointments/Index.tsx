@@ -7,7 +7,7 @@ import React from 'react';
 type IndexProps = {
   appointments: Appointment[];
   updatedAppointment: Appointment;
-  errors?: Error[];
+  errors: Error[];
 };
 
 const Index: React.FC<IndexProps> = ({ appointments, updatedAppointment, errors }) => {
