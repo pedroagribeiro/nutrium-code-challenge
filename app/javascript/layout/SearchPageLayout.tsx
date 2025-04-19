@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next"
 import Searchbar from "../component/layout/Searchbar"
 
 type SearchPageLayoutProps = {
@@ -8,6 +9,8 @@ type SearchPageLayoutProps = {
 }
 
 const SearchPageLayout: React.FC<SearchPageLayoutProps> = ({ children, setSearchTerm, setLocation, performSearch }) => {
+    const { t } = useTranslation();
+
     return (
         <div className="flex flex-col w-full min-h-screen bg-[#fafafa]">
             <Searchbar setSearchTerm={setSearchTerm} setLocation={setLocation} performSearch={performSearch} />

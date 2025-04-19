@@ -75,7 +75,7 @@ features.
 - [x] **Advanced Search:** Use external search engines or tools to enchance
 search capabilities.
 - [x] **Utility-First CSS:** Use frameworks like TailwindCSS for styling.
-- [ ] **Internationaliztion (i18n):** Support for multiple languages.
+- [x] **Internationaliztion (i18n):** Support for multiple languages.
 
 ### Utilities
 

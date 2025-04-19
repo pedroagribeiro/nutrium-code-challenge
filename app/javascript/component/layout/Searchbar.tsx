@@ -1,6 +1,8 @@
 import Nutrium from "../../assets/nutrium.webp"
 import { MapPinIcon } from '@heroicons/react/24/outline';
 import { ArrowRightIcon } from '@heroicons/react/24/solid';
+import LocaleSwitcher from "../ui/LocaleSwitcher";
+import { useTranslation } from "react-i18next";
 
 type SearchbarProps = {
     setSearchTerm: (term: string) => void;
@@ -9,6 +11,8 @@ type SearchbarProps = {
 }
 
 const Searchbar: React.FC<SearchbarProps> = ({ setSearchTerm, setLocation, performSearch }) => {
+    const { t } = useTranslation();
+
     return (
         <nav className="w-full flex flex-col">
 
@@ -21,12 +25,15 @@ const Searchbar: React.FC<SearchbarProps> = ({ setSearchTerm, setLocation, perfo
                         <img src={Nutrium} alt="Nutrium logo" className="h-8 filter brightness-0 invert" />
                     </div>
                     {/* Text on the rigth hand side */}
-                    <div className="flex flex-col lg:flex-row items-center text-white text-lg font-medium space-x-2">
-                        <span>Are you a nutrition professional?</span>
-                        <a href="#" className="underline hover:text-gray-100 flex items-center space-x-1">
-                            <span>Get to know our software</span>
-                            <ArrowRightIcon className="w-4 h-4" />
-                        </a>
+                    <div className="flex flex-row space-x-2 items-center">
+                        <div className="flex flex-col lg:flex-row items-center text-white text-lg font-medium space-x-2">
+                            <span>{t('appointments.topbar.teaser')}</span>
+                            <a href="#" className="underline hover:text-gray-100 flex items-center space-x-1">
+                                <span>{t('appointments.topbar.action')}</span>
+                                <ArrowRightIcon className="w-4 h-4" />
+                            </a>
+                        </div>
+                        <LocaleSwitcher />
                     </div>
                 </div>
             </div>
@@ -38,7 +45,7 @@ const Searchbar: React.FC<SearchbarProps> = ({ setSearchTerm, setLocation, perfo
                     {/* Left search box */}
                     <input
                         type="text"
-                        placeholder="Name, service, online appointment..."
+                        placeholder={t('appointments.searchbar.searchTermPlaceholder')}
                         className="w-full bg-white text-gray-600 p-4 rounded-sm shadow-md focus:outline-none"
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
@@ -46,7 +53,7 @@ const Searchbar: React.FC<SearchbarProps> = ({ setSearchTerm, setLocation, perfo
                     <div className="relative w-full">
                         <input
                             type="text"
-                            placeholder="Location"
+                            placeholder={t('appointments.searchbar.locationPlaceholder')}
                             className="w-full bg-white text-gray-600 p-4 rounded-sm shadow-md pr-10 focus:outline-none" 
                             onChange={(e) => setLocation(e.target.value)}
                         />
@@ -59,7 +66,7 @@ const Searchbar: React.FC<SearchbarProps> = ({ setSearchTerm, setLocation, perfo
                         className="bg-[#e69b73] hover:bg-orange-500 text-white font-medium px-12 py-4 rounded-sm shadow-md"
                         onClick={performSearch}
                     >
-                        Search
+                        {t('appointments.searchbar.button')}
                     </button>
                 </div>
             </div>

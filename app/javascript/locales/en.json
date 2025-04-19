@@ -1,0 +1,39 @@
+{
+    "appointments": {
+        "topbar": {
+            "teaser": "Are you a nutrition professional?",
+            "action": "Get to know our software"
+        },
+        "searchbar": {
+            "searchTermPlaceholder": "Name, service, online appointment...",
+            "locationPlaceholder": "Location",
+            "button": "Search"
+        },
+        "title": "Pending Requests",
+        "subtitle": "Accept or reject new pending requests",
+        "answer": "Answer request",
+        "answerDialog": {
+            "title": "Answer request",
+            "subtitle": "Decide wether you want to accept or decline the appointment request.",
+            "cancel": "Cancel",
+            "accept": "Accept",
+            "reject": "Reject"
+        },
+        "updateAlert": {
+            "error": "Decide wether you want to accept or decline the appointment request.",
+            "forward": "Got it, thanks!"
+        },
+        "scheduleForm": {
+            "name": "Nome",
+            "date": "Data",
+            "time": "Hora",
+            "service": "Serviço",
+            "button": "Schedule Appointment"
+        }
+    },
+    "professional": {
+        "followUp": "FOLLOW-UP",
+        "scheduleAppointment": "Schedule Appointment",
+        "website": "Website"
+    }
+}

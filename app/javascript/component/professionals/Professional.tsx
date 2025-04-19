@@ -4,8 +4,10 @@ import Services from "./Services";
 import { useState } from "react";
 import ScheduleAppointmentDialog from "../appointments/ScheduleAppointmentDialog";
 import { Link } from "@inertiajs/react";
+import { useTranslation } from "react-i18next";
 
 const ProfessionalComponent: React.FC<Professional> = ({ id, name, license_number, professional_category, services }: Professional) => {
+    const { t } = useTranslation();
     const [serviceIndex, setServiceIndex] = useState<number>(0);
     const [scheduleAppointmentDialogOpen, setScheduleAppointmentDialogOpen] = useState<boolean>(false);
 
@@ -21,7 +23,7 @@ const ProfessionalComponent: React.FC<Professional> = ({ id, name, license_numbe
                 <div className="flex flex-col flex-grow min-w-[60%]">
                     <div className="flex flex-col flex-grow">
                         <div className="flex items-center space-x-2">
-                            <span className="text-sm text-[#19af91] bg-[#e6f8f4] px-4 py-2 rounded-full font-semibold">★ FOLLOW-UP</span>
+                            <span className="text-sm text-[#19af91] bg-[#e6f8f4] px-4 py-2 rounded-full font-semibold">★ {t('professional.followUp')}</span>
                         </div>
                         <h2 className="text-3xl font-semibold text-[#19af91] mt-1">{name}</h2>
                         <p className="text-lg text-gray-500">{professional_category.name} • {license_number}N</p>
@@ -34,11 +36,11 @@ const ProfessionalComponent: React.FC<Professional> = ({ id, name, license_numbe
                         className="w-full bg-[#fae6e1] text-[#e6a179] py-2 rounded"
                         onClick={() => setScheduleAppointmentDialogOpen(true)}
                     >
-                        Schedule appointment
+                        {t('professional.scheduleAppointment')}
                     </button>
                     <button className="w-full bg-[#dbf6e7] text-[#19af91] py-2 rounded">
                         <Link href={`/professionals/${id}`} className="text-[#19af91]">
-                            Website
+                            {t('professional.website')}
                         </Link>
                     </button>
                 </div>

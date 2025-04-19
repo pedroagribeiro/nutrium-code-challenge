@@ -6,6 +6,7 @@ import { dateToCalendarDate, dateToClockTime } from "../../utils/date"
 import React, { useEffect } from "react"
 import { router } from "@inertiajs/react"
 import AppointmentAlert from "./AppointmentAlert"
+import { useTranslation } from "react-i18next"
 
 type AppointmentDialogProps = {
     isOpen: boolean
@@ -14,6 +15,7 @@ type AppointmentDialogProps = {
 }
 
 const AppointmentDialog: React.FC<AppointmentDialogProps> = ({ isOpen, setOpen, appointment }) => {
+    const { t } = useTranslation()
     const [processing, setProcessing] = React.useState(false)
     const [alertOpen, setAlertOpen] = React.useState(false)
     const [success, setSuccess] = React.useState(false)
@@ -87,11 +89,11 @@ const AppointmentDialog: React.FC<AppointmentDialogProps> = ({ isOpen, setOpen, 
                         </div>
                         <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                             <DialogTitle as="h3" className="text-base font-semibold text-[#20b194]">
-                            Answer request
+                                {t('appointments.answerDialog.title')}
                             </DialogTitle>
                             <div className="mt-2">
                                 <p className="text-sm">
-                                Decide wether you want to accept or decline the appointment request. 
+                                    {t('appointments.answerDialog.subtitle')}
                                 </p>
                             </div>
                             <div className="flex flex-col space-y-2 pt-6">
@@ -123,14 +125,14 @@ const AppointmentDialog: React.FC<AppointmentDialogProps> = ({ isOpen, setOpen, 
                         onClick={handleReject}
                         disabled={processing}
                     >
-                        Reject
+                        {t('appointments.answerDialog.reject')}
                     </button>
                     <button
                         className="inline-flex w-full justify-center rounded-md bg-[#19af91] px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-green-500 sm:ml-3 sm:w-auto"
                         onClick={handleAccept}
                         disabled={processing}
                     >
-                        Accept
+                        {t('appointments.answerDialog.accept')}
                     </button>
                     <button
                         type="button"
@@ -138,7 +140,7 @@ const AppointmentDialog: React.FC<AppointmentDialogProps> = ({ isOpen, setOpen, 
                         onClick={() => setOpen(false)}
                         className="mt-3 inline-flex w-full justify-center rounded-sm bg-white px-3 py-2 text-sm font-semibold shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50 sm:mt-0 sm:w-auto"
                     >
-                        Cancel
+                        {t('appointments.answerDialog.cancel')}
                     </button>
                 </div>
             </ModalDialog>

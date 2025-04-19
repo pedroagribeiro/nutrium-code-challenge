@@ -1,0 +1,39 @@
+{
+    "appointments": {
+        "topbar": {
+            "teaser": "És um profissional da nutrição?",
+            "action": "Conhece o nosso software"
+        },
+        "searchbar": {
+            "searchTermPlaceholder": "Nome, serviço, marcação...",
+            "locationPlaceholder": "Localização",
+            "button": "Procurar"
+        },
+        "title": "Marcações Pendentes",
+        "subtitle": "Aceita ou rejeita marcações pendentes",
+        "answer": "Responder ao pedido",
+        "answerDialog": {
+            "title": "Responder ao pedido",
+            "subtitle": "Decide se queres aceitar ou rejeitar o pedido de marcação.",
+            "cancel": "Cancelar",
+            "accept": "Aceitar",
+            "reject": "Rejeitar"
+        },
+        "updateAlert": {
+            "error": "Ocorreu um erro do nosso lado e não foi possível atualizar a marcação.",
+            "forward": "Percebido, obrigado!"
+        },
+        "scheduleForm": {
+            "name": "Nome",
+            "date": "Data",
+            "time": "Hora",
+            "service": "Serviço",
+            "button": "Submeter Marcação"
+        }
+    },
+    "professional": {
+        "followUp": "ACOMPANHAMENTO",
+        "scheduleAppointment": "Marcar Consulta",
+        "website": "Página"
+    }
+}

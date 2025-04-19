@@ -4,12 +4,14 @@ import ManAvatar from "../../assets/man_avatar.svg"
 import { CalendarDateRangeIcon, ClockIcon } from "@heroicons/react/24/outline";
 import AppointmentDialog from "./AppointmentDialog";
 import { dateToCalendarDate, dateToClockTime } from "../../utils/date"
+import { useTranslation } from "react-i18next";
 
 type AppointmentProps = {
     appointment: Appointment
 }
 
 const AppointmentComponent: React.FC<AppointmentProps> = ({ appointment }) => {
+    const { t } = useTranslation();
     const [dialogOpen, setDialogOpen] = React.useState(false);
 
     return (
@@ -43,7 +45,7 @@ const AppointmentComponent: React.FC<AppointmentProps> = ({ appointment }) => {
             </div>
             <div className="flex flex-col flex-grow" />
             <button onClick={() => setDialogOpen(!dialogOpen)} className="text-[#20b194] text-lg font-semibold border-t-1 border-gray-300 py-3 bt-1 hover:bg-gray-100">
-                Answer request
+                {t("appointments.answer")}
             </button>
             <AppointmentDialog
                 isOpen={dialogOpen}

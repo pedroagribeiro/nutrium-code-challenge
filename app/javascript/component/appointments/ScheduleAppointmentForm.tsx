@@ -2,6 +2,7 @@ import { useForm } from "@inertiajs/react";
 import { Service } from "../../types/services.types";
 import moment from "moment";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 type ScheduleAppointmentFormData = {
     professionalId: number
@@ -9,6 +10,7 @@ type ScheduleAppointmentFormData = {
 }
 
 const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({ professionalId, services }) => {
+    const { t } = useTranslation();
     const [alertOpen, setAlertOpen] = React.useState(false)
     const [success, setSuccess] = React.useState(false)
 
@@ -60,7 +62,7 @@ const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({ profes
             <div className="w-full md:flex md:items-center mb-6">
                 <div className="md:w-1/4">
                     <label htmlFor="name" className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-                        Name
+                        {t('appointments.scheduleForm.name')}
                     </label>
                 </div>
                 <div className="md:w-full">
@@ -96,7 +98,7 @@ const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({ profes
             <div className="w-full md:flex md:items-center mb-6">
                 <div className="md:w-1/4">
                     <label htmlFor="date" className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-                        Date
+                        {t('appointments.scheduleForm.date')}
                     </label>
                 </div>
                 <div className="md:w-full">
@@ -114,7 +116,7 @@ const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({ profes
             <div className="w-full md:flex md:items-center mb-6">
                 <div className="md:w-1/4">
                     <label htmlFor="time" className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-                        Time
+                        {t('appointments.scheduleForm.time')}
                     </label>
                 </div>
                 <div className="md:w-full">
@@ -132,7 +134,7 @@ const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({ profes
             <div className="w-full md:flex md:items-center mb-6">
                 <div className="md:w-1/4">
                     <label htmlFor="service" className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-                        Service
+                            {t('appointments.scheduleForm.service')}
                     </label>
                 </div>
                 <div className="md:w-full">
@@ -155,7 +157,7 @@ const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({ profes
 
 
             <button type="submit" disabled={processing} className="bg-[#19af91] text-white py-2 px-4 rounded-sm">
-                Schedule Appointment
+                {t('appointments.scheduleForm.button')}
             </button>
         </form>
     )

@@ -1,5 +1,6 @@
 import { Button, DialogPanel, DialogTitle } from "@headlessui/react";
 import Alert from "../ui/Alert";
+import { useTranslation } from "react-i18next";
 
 type AppointmentAlertProps = {
     success: boolean
@@ -8,6 +9,8 @@ type AppointmentAlertProps = {
 }
 
 const AppointmentAlert: React.FC<AppointmentAlertProps> = ({ success, isOpen, setOpen }) => {
+  const { t } = useTranslation();
+
     return (
         <Alert isOpen={isOpen} setOpen={setOpen}>
             <DialogPanel
@@ -19,13 +22,14 @@ const AppointmentAlert: React.FC<AppointmentAlertProps> = ({ success, isOpen, se
               </DialogTitle>
               { !success &&
               <p className="mt-2 text-sm/6 text-gray-400">
-                Due to an error on our end the appointment status could not be updated
+                {t('appointments.updateAlert.error')}
               </p>}
               <div className="mt-4">
                 <Button
                   className={`inline-flex items-center gap-2 rounded-md ${success === true ? 'bg-[#19af91]' : 'bg-gray-700'} py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[focus]:outline-1 data-[focus]:outline-white data-[open]:bg-gray-700`}
                   onClick={() => setOpen(false)}
                 >
+                  {t('appointments.updateAlert.forward')}
                   Got it, thanks!
                 </Button>
               </div>
