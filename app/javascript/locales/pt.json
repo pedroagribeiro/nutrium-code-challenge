@@ -44,5 +44,9 @@
     "followUp": "ACOMPANHAMENTO",
     "scheduleAppointment": "Marcar Consulta",
     "website": "Página"
+  },
+  "messages": {
+    "noResultsFound": "Não foram encontrados resultados",
+    "loading": "A carregar..."
   }
 }

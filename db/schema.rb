@@ -11,14 +11,17 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[8.0].define(version: 2025_04_17_232634) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_catalog.plpgsql"
+
   create_table "appointments", force: :cascade do |t|
     t.string "email"
     t.datetime "date"
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "professional_id", null: false
-    t.integer "service_id", null: false
+    t.bigint "professional_id", null: false
+    t.bigint "service_id", null: false
     t.string "name"
     t.index ["professional_id"], name: "index_appointments_on_professional_id"
     t.index ["service_id"], name: "index_appointments_on_service_id"
@@ -35,7 +38,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_17_232634) do
     t.integer "license_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "professional_category_id", null: false
+    t.bigint "professional_category_id", null: false
     t.index ["professional_category_id"], name: "index_professionals_on_professional_category_id"
   end
 
@@ -45,7 +48,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_17_232634) do
     t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "professional_id", null: false
+    t.bigint "professional_id", null: false
     t.string "name"
     t.index ["professional_id"], name: "index_services_on_professional_id"
   end

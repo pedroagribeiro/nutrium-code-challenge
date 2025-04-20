@@ -2,6 +2,8 @@ services:
   db:
     image: postgres:17.4
     container_name: nutrim-db
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_USER: ${DATABASE_USERNAME:-postgres}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-postgres}
@@ -11,6 +13,8 @@ services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.18.0
     container_name: elasticsearch-nutrium-app
+    ports:
+      - "9200:9200"
     environment:
       - discovery.type=single-node
       - xpack.security.enabled=false

@@ -76,3 +76,5 @@ gem "vite_rails", "~> 3.0"
 gem "elasticsearch-model", "~> 8.0"
 
 gem "elasticsearch-rails", "~> 8.0"
+
+gem "pg"

@@ -4,6 +4,8 @@ class Professional < ApplicationRecord
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
+  after_create :index_to_elasticsearch
+
   has_many :services, dependent: :destroy
   has_many :appointments, dependent: :destroy
   belongs_to :professional_category
@@ -19,6 +21,10 @@ class Professional < ApplicationRecord
   validates :name, presence: true, length: { maximum: 100 }
   validates :license_number, presence: true, numericality: { only_integer: true }
   validates :professional_category_id, presence: true
+
+  def index_to_elasticsearch
+    __elasticsearch__.index_document
+  end
 
   def service_names
     services.pluck(:name)

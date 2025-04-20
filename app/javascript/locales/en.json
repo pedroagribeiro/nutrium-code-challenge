@@ -44,5 +44,9 @@
     "followUp": "FOLLOW-UP",
     "scheduleAppointment": "Schedule Appointment",
     "website": "Website"
+  },
+  "messages": {
+    "noResultsFound": "No results were found",
+    "loading": "Loading..."
   }
 }

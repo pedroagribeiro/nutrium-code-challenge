@@ -5,6 +5,22 @@ Service.destroy_all
 Professional.destroy_all
 ProfessionalCategory.destroy_all
 
+if Professional.__elasticsearch__.index_exists?
+  puts "Deleting existing professionals index..."
+  Professional.__elasticsearch__.client.indices.delete index: Professional.index_name
+end
+
+puts "Creating professionals index with correct mappings..."
+Professional.__elasticsearch__.create_index!
+
+if Service.__elasticsearch__.index_exists?
+  puts "Deleting existing services index..."
+  Service.__elasticsearch__.client.indices.delete index: Service.index_name
+end
+
+puts "Creating services index with correct mappings..."
+Service.__elasticsearch__.create_index!
+
 # Professional categories
 
 ProfessionalCategory.create([

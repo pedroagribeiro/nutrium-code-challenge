@@ -7,7 +7,8 @@ class Appointment < ApplicationRecord
   validates :professional_id, presence: true
   validates :service_id, presence: true
 
-  validate :no_pending_appointment_for_same_email, on: :create
+  # Commented because the rules that follows is unusable if this one is enabled
+  # validate :no_pending_appointment_for_same_email, on: :create
 
   after_update :reject_other_appointments_on_same_date, if: :saved_change_to_status?
 

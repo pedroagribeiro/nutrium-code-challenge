@@ -5,6 +5,7 @@ import { Appointment } from '../../types/appointments.types';
 import React from 'react';
 import Loading from '../../component/ui/Loading';
 import NoResultsFound from '../../component/ui/NoResultFound';
+import { useTranslation } from 'react-i18next';
 
 type IndexProps = {
   appointments: Appointment[] | undefined;
@@ -12,6 +13,7 @@ type IndexProps = {
 };
 
 const Index: React.FC<IndexProps> = ({ appointments, newAppointment }) => {
+  const { t } = useTranslation();
   const [appointmentList, setAppointmentList] = useState<Appointment[]>(appointments || []);
   const [isLoading, setLoading] = useState<boolean>(true);
   const [page, setPage] = useState<number>(1);
@@ -41,7 +43,7 @@ const Index: React.FC<IndexProps> = ({ appointments, newAppointment }) => {
         </div>
       );
     } else {
-      <NoResultsFound message="No result were found." />;
+      <NoResultsFound message={t('messages.noResultsFound')} />;
     }
   };
 
@@ -70,7 +72,7 @@ const Index: React.FC<IndexProps> = ({ appointments, newAppointment }) => {
       existsPreviousPage={existsPreviousPage}
       existsNextPage={existsNextPage}
     >
-      {isLoading ? <Loading message="Loading..." /> : displayResults()}
+      {isLoading ? <Loading message={t('messages.loading')} /> : displayResults()}
     </AppointmentsPageLayout>
   );
 };

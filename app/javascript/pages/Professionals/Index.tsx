@@ -5,12 +5,15 @@ import ProfessionalComponent from '../../component/professionals/Professional';
 import Paginator from '../../component/navigation/Paginator';
 import { router } from '@inertiajs/react';
 import Loading from '../../component/ui/Loading';
+import NoResultsFound from '../../component/ui/NoResultFound';
+import { useTranslation } from 'react-i18next';
 
 type IndexProps = {
   professionals: Professional[];
 };
 
 const Index: React.FC<IndexProps> = ({ professionals }) => {
+  const { t } = useTranslation();
   const [professional, setProfessional] = React.useState<number>(1);
   const [searchTerm, setSearchTerm] = React.useState<string>('');
   const [location, setLocation] = React.useState<string>('');
@@ -69,6 +72,8 @@ const Index: React.FC<IndexProps> = ({ professionals }) => {
           />
         </>
       );
+    } else {
+      return <NoResultsFound message={t('messages.noResultsFound')} />;
     }
   };
 
@@ -78,7 +83,7 @@ const Index: React.FC<IndexProps> = ({ professionals }) => {
       setLocation={setLocation}
       performSearch={performSearch}
     >
-      {isLoading ? <Loading message="Loading..." /> : displayResults()}
+      {isLoading ? <Loading message={t('messages.loading)')} /> : displayResults()}
     </SearchPageLayout>
   );
 };
