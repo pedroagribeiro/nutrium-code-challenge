@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgres:17.4
+    container_name: nutrim-db
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME:-postgres}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-postgres}
+      POSTGRES_HOST: ${DATABASE_ADDRESS:-localhost}
+      POSTGRES_DB: ${DATABASE_DBNAME:-nutrium}
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.18.0
+    container_name: elasticsearch-nutrium-app
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - xpack.security.http.ssl.enabled=false
+      - cluster.name=elasticsearch-nutrium
+      - cluster.routing.allocation.disk.threshold_enabled=false
