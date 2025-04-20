@@ -49,10 +49,12 @@ const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({
       preserveScroll: true,
       preserveState: true,
       onSuccess: () => {
+        console.log('success');
         setSuccess(true);
         setLoading(false);
       },
       onError: (errors) => {
+        console.log(errors);
         setSuccess(false);
         setLoading(false);
       },
@@ -85,7 +87,7 @@ const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({
           </div>
           <div className="md:w-full">
             <input
-              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded-sm w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#19af91]"
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded-sm w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#19af91] focus:ring-0"
               id="name"
               type="text"
               value={data.name}
@@ -106,7 +108,7 @@ const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({
           </div>
           <div className="md:w-full">
             <input
-              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#19af91]"
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#19af91] focus:ring-0"
               id="email"
               type="email"
               value={data.email}
@@ -127,7 +129,7 @@ const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({
           </div>
           <div className="md:w-full">
             <input
-              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#19af91]"
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#19af91] focus:ring-0"
               id="date"
               type="date"
               value={data.date}
@@ -148,7 +150,7 @@ const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({
           </div>
           <div className="md:w-full">
             <input
-              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#19af91]"
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#19af91] focus:ring-0"
               id="time"
               type="time"
               value={data.time}
@@ -169,7 +171,7 @@ const ScheduleAppointmentForm: React.FC<ScheduleAppointmentFormData> = ({
           </div>
           <div className="md:w-full">
             <select
-              className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="block appearance-none w-full bg-gray-200 border-2 border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-[#19af91] focus:ring-0"
               id="service"
               value={data.service_id}
               onChange={(e) => setData('service_id', Number(e.target.value))}

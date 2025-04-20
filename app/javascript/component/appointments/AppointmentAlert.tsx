@@ -1,6 +1,5 @@
 import { Button, DialogPanel, DialogTitle } from '@headlessui/react';
 import Alert from '../ui/Alert';
-import { useTranslation } from 'react-i18next';
 
 type AppointmentAlertProps = {
   success: boolean;

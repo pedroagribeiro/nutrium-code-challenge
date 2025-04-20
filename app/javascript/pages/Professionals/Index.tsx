@@ -83,7 +83,7 @@ const Index: React.FC<IndexProps> = ({ professionals }) => {
       setLocation={setLocation}
       performSearch={performSearch}
     >
-      {isLoading ? <Loading message={t('messages.loading)')} /> : displayResults()}
+      {isLoading ? <Loading message={t('messages.loading')} /> : displayResults()}
     </SearchPageLayout>
   );
 };
