@@ -34,6 +34,7 @@ const Index: React.FC<IndexProps> = ({ professionals }) => {
         setIsLoading(true);
       },
       onFinish: () => {
+        setProfessional(1);
         setIsLoading(false);
       },
     });
@@ -43,7 +44,8 @@ const Index: React.FC<IndexProps> = ({ professionals }) => {
     if (professionals.length > 0) {
       return (
         <>
-          <ProfessionalComponent {...professionals[professional]} />
+          <ProfessionalComponent {...professionals[professional - 1]} />
+          <div className="flex flex-1" />
           <Paginator
             pageCount={professionals.length}
             currentPage={professional}

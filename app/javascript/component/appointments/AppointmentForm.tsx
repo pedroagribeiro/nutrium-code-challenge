@@ -10,9 +10,10 @@ import AppointmentAlert from './AppointmentAlert';
 
 type AppointmentFormProps = {
   appointment: Appointment;
+  setOpen: (open: boolean) => void;
 };
 
-const AppointmentForm: React.FC<AppointmentFormProps> = ({ appointment }) => {
+const AppointmentForm: React.FC<AppointmentFormProps> = ({ appointment, setOpen }) => {
   const { t } = useTranslation();
   const [loading, setLoading] = React.useState<boolean>(false);
   const [alertOpen, setAlertOpen] = React.useState(false);
@@ -39,7 +40,7 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({ appointment }) => {
         setLoading(true);
       },
       onFinish: () => {
-        // setOpen(false);
+        setOpen(false);
         setAlertOpen(true);
         setUserInformed(false);
       },
@@ -66,7 +67,7 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({ appointment }) => {
         setLoading(true);
       },
       onFinish: () => {
-        // setOpen(false);
+        setOpen(false);
         setAlertOpen(true);
         setUserInformed(false);
       },
@@ -118,14 +119,14 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({ appointment }) => {
         </div>
         <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 text-gray-600">
           <button
-            className="inline-flex w-full justify-center rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-red-500 sm:ml-3 sm:w-auto"
+            className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-red-400 sm:ml-3 sm:w-auto"
             onClick={handleReject}
             disabled={loading}
           >
             {t('appointments.answerDialog.reject')}
           </button>
           <button
-            className="inline-flex w-full justify-center rounded-md bg-[#19af91] px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-green-500 sm:ml-3 sm:w-auto"
+            className="inline-flex w-full justify-center rounded-md bg-[#19af91] px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-[#70af91] sm:ml-3 sm:w-auto"
             onClick={handleAccept}
             disabled={loading}
           >
@@ -134,7 +135,7 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({ appointment }) => {
           <button
             type="button"
             data-autofocus
-            // onClick={() => setOpen(false)}
+            onClick={() => setOpen(false)}
             className="mt-3 inline-flex w-full justify-center rounded-sm bg-white px-3 py-2 text-sm font-semibold shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50 sm:mt-0 sm:w-auto"
           >
             {t('appointments.answerDialog.cancel')}

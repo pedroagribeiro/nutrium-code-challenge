@@ -2,12 +2,28 @@ class ProfessionalsController < ApplicationController
   before_action :set_professional, only: %i[ show edit update destroy ]
 
   def index
-    if params[:search].present?
-      response = Professional.search_by_name_services_and_license_number(params[:search])
-      professionals = response.records.includes(:professional_category, :services)
-    else
-      professionals = Professional.includes(:professional_category, :services).all
+    cache_key = if params[:search].present?
+                "professionals_search_#{params[:search].downcase.parameterize}"
+              else
+                "professionals_all"
+              end
+
+    loaded_from_cache = true
+
+    professionals = Rails.cache.fetch(cache_key, expires_in: 10.minutes) do
+      loaded_from_cache = false
+
+      if params[:search].present?
+        response = Professional.search_by_name_services_and_license_number(params[:search])
+        records = response.records.includes(:professional_category, :services).to_a
+      else
+        records = Professional.includes(:professional_category, :services).to_a
+      end
+
+      records.as_json(include: [:professional_category, :services])
     end
+
+    Rails.logger.info "🔍 Professionals loaded from #{loaded_from_cache ? 'cache' : 'database'} (key: #{cache_key})"
 
     render inertia: 'Professionals/Index', props: {
       professionals: professionals.as_json(include: [:professional_category, :services])

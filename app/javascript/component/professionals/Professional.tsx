@@ -27,7 +27,7 @@ const ProfessionalComponent: React.FC<Professional> = ({
         </div>
         {/* Description */}
         <div className="flex flex-col flex-grow min-w-[60%]">
-          <div className="flex flex-col flex-grow">
+          <div className="flex flex-col flex-grow items-center lg:items-start">
             <div className="flex items-center space-x-2">
               <span className="text-sm text-[#19af91] bg-[#e6f8f4] px-4 py-2 rounded-full font-semibold">
                 ★ {t('professional.followUp')}

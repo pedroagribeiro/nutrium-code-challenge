@@ -34,6 +34,12 @@
       "button": "Submeter Marcação"
     }
   },
+  "professionals": {
+    "paginator": {
+      "previous": "ANTERIOR",
+      "next": "PRÓXIMO"
+    }
+  },
   "professional": {
     "followUp": "ACOMPANHAMENTO",
     "scheduleAppointment": "Marcar Consulta",

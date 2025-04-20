@@ -16,18 +16,18 @@ const AppointmentComponent: React.FC<AppointmentProps> = ({ appointment }) => {
 
   return (
     <div className="flex flex-col rounded-sm border-1 border-gray-300">
-      <div className="w-full flex flex-row gap-6 p-6">
+      <div className="w-full flex items-center lg:items-start flex-col lg:flex-row gap-6 p-6">
         {/* Image */}
-        <div className="w-[35%]">
+        <div className="w-[20%] lg:w-[35%]">
           <img src={ManAvatar} alt="Man Avatar Image" className="w-full h-auto rounded-full" />
         </div>
         {/* Information */}
-        <div className="w-full flex flex-col space-y-6 text-gray-500 pt-2">
-          <div className="gap-2 max-w-[85%] overflow-clip">
+        <div className="lg:w-full flex flex-col space-y-6 text-gray-500 pt-2">
+          <div className="gap-2 lg:max-w-[85%] overflow-clip">
             <p className="text-2xl">{appointment.name}</p>
             <p>{appointment.service.name}</p>
           </div>
-          <div className="gap-2">
+          <div className="flex flex-col gap-2">
             <div className="flex flex-row space-x-2 items-center">
               <div className="p-1 rounded-full bg-[#dcfaf0]">
                 <CalendarDateRangeIcon className="w-4 h-4 text-[#19af91]" />

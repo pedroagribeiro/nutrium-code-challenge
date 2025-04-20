@@ -11,7 +11,7 @@ type AppointmentDialogProps = {
 const AppointmentDialog: React.FC<AppointmentDialogProps> = ({ isOpen, setOpen, appointment }) => {
   return (
     <ModalDialog isOpen={isOpen} setOpen={setOpen}>
-      <AppointmentForm appointment={appointment} />
+      <AppointmentForm appointment={appointment} setOpen={setOpen} />
     </ModalDialog>
   );
 };

@@ -32,7 +32,7 @@ const Index: React.FC<IndexProps> = ({ appointments, newAppointment }) => {
       const startIndex = (page - 1) * 6;
       const endIndex = startIndex + 6;
       return (
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {appointmentList
             .slice(startIndex, endIndex)
             .map((appointment: Appointment, index: number) => (

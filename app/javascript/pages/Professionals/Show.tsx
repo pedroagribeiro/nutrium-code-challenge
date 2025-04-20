@@ -1,5 +1,5 @@
 import ProfessionalComponent from '../../component/professionals/Professional';
-import GeneralLayout from '../../layout/GeneralLayout';
+import ProfessionalPageLayout from '../../layout/ProfessionalPageLayout';
 import { Professional } from '../../types/professionals.types';
 
 type ShowProps = {
@@ -8,9 +8,9 @@ type ShowProps = {
 
 const Show: React.FC<ShowProps> = ({ professional }) => {
   return (
-    <GeneralLayout>
+    <ProfessionalPageLayout>
       <ProfessionalComponent {...professional} />
-    </GeneralLayout>
+    </ProfessionalPageLayout>
   );
 };
 

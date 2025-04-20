@@ -16,7 +16,7 @@ const AppointmentsPageLayout: React.FC<AppointmentsPageLayoutProps> = ({
   existsNextPage,
 }) => {
   return (
-    <div className="w-full min-h-screen bg-white px-10">
+    <div className="w-full min-h-screen bg-white lg:px-10">
       {/* Title and navigation bar */}
       <AppointmentsBar
         setPreviousPage={setPreviousPage}
@@ -26,7 +26,7 @@ const AppointmentsPageLayout: React.FC<AppointmentsPageLayoutProps> = ({
       />
 
       {/* Pending requests  */}
-      <div className="flex flex-col flex-1 justify-start space-y-8 px-6 my-6">{children}</div>
+      <div className="flex flex-col flex-1 justify-start space-y-8 lg:px-6 my-6">{children}</div>
     </div>
   );
 };

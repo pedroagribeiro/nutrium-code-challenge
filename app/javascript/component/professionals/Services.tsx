@@ -13,9 +13,9 @@ const Services: React.FC<ServicesProps> = ({ serviceIndex, services }) => {
   }
 
   return (
-    <div className="pt-12 flex flex-col lg:flex-row flex-grow justify-between">
+    <div className="pt-6 lg:pt-12 flex flex-col lg:flex-row flex-grow items-start lg:items-start lg:justify-between">
       {/* Location */}
-      <div className="w-1/2 flex flex-row gap-2 space-y-3 text-lg">
+      <div className="w-full lg:w-1/2 flex flex-row gap-2 space-y-3 text-lg">
         <MapPinIcon className="w-6 h-6 text-[#19af91]" />
         <div className="flex flex-col gap-3">
           <p className="text-[#19af91] font-semibold">Online Follow-Up</p>
@@ -24,12 +24,12 @@ const Services: React.FC<ServicesProps> = ({ serviceIndex, services }) => {
         </div>
       </div>
       {/* Appointment price */}
-      <div className="flex flex-col w-1/2  space-y-4 items-start text-lg text-gray-400">
-        <div className="flex gap-2 items-center">
+      <div className="flex flex-col w-full lg:w-1/2 pt-6 lg:pt-0 space-y-4 items-start text-lg text-gray-400">
+        <div className="w-full flex gap-2 lg:items-center">
           <BriefcaseIcon className="w-6 h-6 text-[#19af91]" />
           <span>{services[serviceIndex].name}</span>
         </div>
-        <div className="flex gap-2 items-center">
+        <div className="w-full flex gap-2 items-center">
           <BanknotesIcon className="w-6 h-6 text-[#19af91]" />
           <span>€ {services[serviceIndex].price}</span>
         </div>

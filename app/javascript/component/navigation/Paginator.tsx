@@ -1,4 +1,5 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
+import { useTranslation } from 'react-i18next';
 
 type PaginatorProps = {
   pageCount: number;
@@ -15,6 +16,8 @@ const Paginator: React.FC<PaginatorProps> = ({
   setNext,
   setPage,
 }: PaginatorProps) => {
+  const { t } = useTranslation();
+
   return (
     <div className="flex items-center justify-between px-4 py-3 sm:px-6">
       <div className="flex flex-1 justify-between sm:hidden text-lg text-gray-500">
@@ -22,13 +25,13 @@ const Paginator: React.FC<PaginatorProps> = ({
           className="relative inline-flex items-center rounded-sm border border-gray-300 px-4 py-2 text-sm font-medium hover:bg-[#dcfaf0] hover:text-[#0f766e] focus:outline-offset-0"
           onClick={() => setPrevious()}
         >
-          PREVIOUS
+          {t('professionals.paginator.previous')}
         </a>
         <a
           className="relative ml-3 inline-flex items-center rounded-sm border border-gray-300 px-4 py-2 text-sm font-medium hover:bg-gray-50"
           onClick={() => setNext()}
         >
-          NEXT
+          {t('professionals.paginator.next')}
         </a>
       </div>
       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">

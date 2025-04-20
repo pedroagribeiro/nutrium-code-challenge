@@ -39,10 +39,19 @@ class Professional < ApplicationRecord
 
   def self.search_by_name_services_and_license_number(query)
     __elasticsearch__.search(
+      # query: {
+      #   multi_match: {
+      #     query: query,
+      #     fields: ['name^2', 'service_names', 'license_number'],
+      #   }
+      # }
       query: {
-        multi_match: {
-          query: query,
-          fields: ['name^2', 'service_names', 'license_number'],
+          bool: {
+          should: [
+            { wildcard: { name: "*#{query.downcase}*" } },
+            { wildcard: { service_names: "*#{query.downcase}*" } },
+            { wildcard: { license_number: "*#{query.downcase}*" } }
+          ]
         }
       }
     )

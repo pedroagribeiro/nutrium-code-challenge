@@ -18,8 +18,8 @@ const AppointmentsBar: React.FC<AppointmentsBarProps> = ({
   const { t } = useTranslation();
 
   return (
-    <div className="flex items-center justify-between m-6 text-gray-500">
-      <div>
+    <div className="flex flex-col gap-6 items-center lg:gap-0 lg:flex-row lg:justify-between m-6 text-gray-500">
+      <div className="flex flex-col items-center lg:items-start">
         <h1 className="text-2xl font-semibold">{t('appointments.title')}</h1>
         <p className="text-sm">{t('appointments.subtitle')}</p>
       </div>
