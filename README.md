@@ -18,21 +18,22 @@ Implementation of the code challenge pruposed by Nutrium.
 
 ### Core Requirements
 
-#### Guest Flow 
+#### Guest Flow
 
 - [x] A guest can search nutritionists by:
-    - [x] Nutritionist's name.
-    - [x] Name of service provided.
+  - [x] Nutritionist's name.
+  - [x] Name of service provided.
 - [x] A guest can request an appointment with a selected nutritionist by:
-    - [x] Providing their name and email.
-    - [x] Selecting a date and time.
-- [ ] A guest can only have one pending request at a time.
+  - [x] Providing their name and email.
+  - [x] Selecting a date and time.
+- [x] A guest can only have one pending request at a time. (commented because it
+      makes other rule pointless)
 - [x] Once a request is submitted, it will be marked as pending until is either
-accepted or rejected by a nutritionist.
-- [ ] If a request is accepted, all **other pending requests** for the same
-guest **at the same time date and time** must be automatically rejected.
+      accepted or rejected by a nutritionist.
+- [x] If a request is accepted, all **other pending requests** for the same
+      guest **at the same time date and time** must be automatically rejected.
 - [x] Guests should receive an email notification when their request is answered
-(accepted or rejected).
+      (accepted or rejected).
 
 #### Nutritionist Flow
 
@@ -46,49 +47,49 @@ guest **at the same time date and time** must be automatically rejected.
 
 - [x] Similar to the presented mockup.
 - Includes:
-    - [x] A search input (by name or service).
-    - [x] A results list of matching nutritionists.
-    - [x] A **"Schedule Appointment"** button for each nutritionist.
-        - [x] Opens a modal to collect:
-            - [x] Guest's name and email.
-            - [x] Desired appointment date and time.
-    - [x] A "Personal Page" button (this can be left as non-functional) placeholder.
+  - [x] A search input (by name or service).
+  - [x] A results list of matching nutritionists.
+  - [x] A **"Schedule Appointment"** button for each nutritionist.
+    - [x] Opens a modal to collect:
+      - [x] Guest's name and email.
+      - [x] Desired appointment date and time.
+  - [x] A "Personal Page" button (this can be left as non-functional) placeholder.
 
 #### 2. Pending Appointment Requests Page (Nutritionist View)
 
 - [x] Similar to the presented mockup.
 - [x] A page where the a nutritionist can view all incoming appointment
-requests.
+      requests.
 - [x] **Must be implemented using a Javascript Framework (React recommended)**
 - [x] Authentication is not required.
 - For each request, show:
-    - [x] Guest information.
-    - [x] Request date/time.
-    - [x] Actions: **Accept** or **Reject**.
+  - [x] Guest information.
+  - [x] Request date/time.
+  - [x] Actions: **Accept** or **Reject**.
 - [x] Trigger email notification to the guest when the request is answered.
 
 ### Extra-Mile Features (Optional)
 
 - [ ] **Testing:** Implement testing strategy (unit, feature...) for implemented
-features.
-- [ ] **Caching:** Implement a caching strategy for nutritionist search.
+      features.
+- [x] **Caching:** Implement a caching strategy for nutritionist search.
 - [x] **Advanced Search:** Use external search engines or tools to enchance
-search capabilities.
+      search capabilities.
 - [x] **Utility-First CSS:** Use frameworks like TailwindCSS for styling.
 - [x] **Internationaliztion (i18n):** Support for multiple languages.
 
 ### Utilities
 
-- [ ] Submit your solution as a **public Git repository** (GitHub, GitLab,
-Bitbucket).
+- [x] Submit your solution as a **public Git repository** (GitHub, GitLab,
+      Bitbucket).
 - [ ] Include a `README.md` file with:
-    - [ ] Setup instructions.
-    - [ ] How to run the application.
-    - [ ] Any other relevant notes or decisions.
-- [x] Include *seeds* that:
-    - Create multiple nutritionists.
-    - Assign services with different prices and locations.
-    - Allow search functionality to be tested immediatly.
+  - [ ] Setup instructions.
+  - [ ] How to run the application.
+  - [ ] Any other relevant notes or decisions.
+- [x] Include _seeds_ that:
+  - Create multiple nutritionists.
+  - Assign services with different prices and locations.
+  - Allow search functionality to be tested immediatly.
 
 ## 🚀 Getting Started
 
