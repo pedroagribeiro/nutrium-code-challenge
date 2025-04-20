@@ -82,66 +82,66 @@ Implementation of the code challenge pruposed by Nutrium.
 
 - [x] Submit your solution as a **public Git repository** (GitHub, GitLab,
       Bitbucket).
-- [ ] Include a `README.md` file with:
-  - [ ] Setup instructions.
-  - [ ] How to run the application.
+- [x] Include a `README.md` file with:
+  - [x] Setup instructions.
+  - [x] How to run the application.
   - [ ] Any other relevant notes or decisions.
 - [x] Include _seeds_ that:
   - Create multiple nutritionists.
   - Assign services with different prices and locations.
   - Allow search functionality to be tested immediatly.
 
-## 🚀 Getting Started
-
-This project uses settings configured in environment variables defined in the
-`.env` file. Use the `.env.sample` as a starting point.
-
-```bash
-cp .env.sample .env
-```
+## 🚀 Setup
 
 ### Prerequisists
 
 Ensure you have the following installed:
 
-- Ruby (version x.x.x)
-- Rails (version x.x.x)
-- PostgreSQL
-- Node.js and Yarn (for managing JS dependencies)
+- Ruby (version 3.3.7)
+- Rails (version 8.0.2)
+- Node.js (npm or yarn) for managing JS dependencies
+- Docker (in order to run PostgreSQL and Elasticsearch)
 
-### Setup
+### Setup the environment
 
-Clone the repo and install dependencies:
+Some helper scripts are included in order to make it easir to get the project up
+and running.
+
+In order to run the project you basically have to have all dependencies
+installed, have a PostgreSQL instance running in localhost, as well as an
+Elasticsearch. Also, you must have the schema loaded in the database as well as
+the searching indexes created and populated in Elasticsearch.
+
+In order to get all of this setup run the following commands:
 
 ```bash
-git clone https://github.com/your-username/project-name.git
-cd project-name
+# Install ruby dependencies
 bundle install
+
+# Install javascript dependencies
 npm install
+
+# Setup PostgreSQL and Elasticsearch instances
+bin/env/start
+
+# Force the schema on to the database and populate it with data
+bin/rails db:migrate
+bin/rails db:seed
 ```
 
-Setup the database:
+## How to run the application
 
+```bash
+bin/dev
+
+# Visit the application at http://localhost:3000
+
+# Nutritionist page is at http://localhost:3000/professionals (http://localhost:3000 redirects to http://localhost:3000/professionals)
+
+# Appointments page is at http://localhost:3000/appointments
+# Query parameters are available:
+#  - professional_id (integer) [in order to filter by nutritionist id]
+#  - status (integer) [in order to filter by status (0 - pending; 1 - accepted; 2 - rejected)]
 ```
-rails db:create
-rails db:migrate
-rails db:seed
-```
 
-## Usage
-
-Start the application server:
-
-```
-bin/rails server
-```
-
-Visit `http://localhost:3000` in your browser.
-
-## Running tests
-
-To run tests:
-
-```
-bin/rails test
-```
+## Notes
