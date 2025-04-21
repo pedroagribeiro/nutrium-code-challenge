@@ -8,7 +8,9 @@ type ProfessionalPageLayoutProps = {
 const ProfessionalPageLayout: React.FC<ProfessionalPageLayoutProps> = ({ children }) => {
   return (
     <div className="flex flex-col w-full min-h-screen bg-[#fafafa]">
-      <Bar />
+      <nav className="w-full flex flex-col">
+        <Bar />
+      </nav>
       <div className="flex flex-col flex-1 justify-start space-y-8 px-2 lg:px-10 my-6">
         {children}
       </div>
