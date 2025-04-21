@@ -151,7 +151,27 @@ bin/dev
 
 ## Notes
 
+## Database schema
+
+## Technologies
+
+- [Ruby on Rails](https://rubyonrails.org/), as the main web framework.
+- [Inertia.js](https://inertia-rails.dev/guide/), as the glue between the rais
+  controllers.
+- [React.js](https://react.dev/) for the frontend.
+
 ## Caching strategy
+
+When a search is made, the controller layer stores the result of the query in an
+entry with keyname `professionals_search_{#search_term}` (in memory, since we
+are in a development environment and nothing more complex is required). This
+cache entry is then valid for 2 minutes. If, in the 2 minutes that follow the
+write action in the cache a request, a search request with the same search term
+is received, the application will return the result stored in the cache. This
+mechanism can reduce significantly the amount of times is hit to form the
+response to a request, reducing latency in response times (to this request) and
+potentially reducing latency in other requests, due to the reduced load on the
+database.
 
 ## Advanced Search
 

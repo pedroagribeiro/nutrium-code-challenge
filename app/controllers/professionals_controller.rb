@@ -10,7 +10,7 @@ class ProfessionalsController < ApplicationController
 
     loaded_from_cache = true
 
-    professionals = Rails.cache.fetch(cache_key, expires_in: 10.minutes) do
+    professionals = Rails.cache.fetch(cache_key, expires_in: 2.minutes) do
       loaded_from_cache = false
 
       if params[:search].present?
