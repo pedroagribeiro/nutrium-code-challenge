@@ -1,11 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  license_number: 1
-  address: MyString
+  id: 1
+  name: Jane Doe
+  license_number: 12345
+  professional_category_id: 1
 
 two:
-  name: MyString
-  license_number: 1
-  address: MyString
+  id: 2
+  name: Jon Doe
+  license_number: 12346
+  professional_category_id: 1

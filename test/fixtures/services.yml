@@ -1,11 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  price: 1.5
-  address: MyString
-  city: MyString
+  id: 1
+  name: Online Follow-Up
+  price: 10.0
+  address: Rua dos Chãos
+  city: Braga
+  professional_id: 1
 
 two:
-  price: 1.5
-  address: MyString
-  city: MyString
+  id: 2
+  name: Presential
+  price: 20.0
+  address: Chiado
+  city: Lisboa
+  professional_id: 2

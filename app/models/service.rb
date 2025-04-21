@@ -13,6 +13,7 @@ class Service < ApplicationRecord
     end
   end
 
+  validates :name, presence: true
   validates :price, presence: true
   validates :address, presence: true
   validates :city, presence: true

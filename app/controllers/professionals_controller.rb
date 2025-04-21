@@ -32,6 +32,13 @@ class ProfessionalsController < ApplicationController
 
   def show
     professional = Professional.includes(:professional_category, :services).find(params[:id])
+
+    unless professional
+      return render inertia: "Professionals/Show", props: {
+        errors: ["Professional not found"]
+      }, status: not_found
+    end
+
     render inertia: 'Professionals/Show', props: {
       professional: professional.as_json(include: [:professional_category, :services])
     }
@@ -44,7 +51,7 @@ class ProfessionalsController < ApplicationController
   def create
     @professional = Professional.new
     if @professional.save
-      redirect_to @professional
+      redirect_to professional_path(@professional)
     else
       render :new, status: :unprocessable_entity
     end
