@@ -70,7 +70,7 @@ Implementation of the code challenge pruposed by Nutrium.
 
 ### Extra-Mile Features (Optional)
 
-- [ ] **Testing:** Implement testing strategy (unit, feature...) for implemented
+- [x] **Testing:** Implement testing strategy (unit, feature...) for implemented
       features.
 - [x] **Caching:** Implement a caching strategy for nutritionist search.
 - [x] **Advanced Search:** Use external search engines or tools to enchance
