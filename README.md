@@ -153,6 +153,10 @@ bin/dev
 
 ## Database schema
 
+<div align="center">
+    <img src="db_schema.png" alt="db_schema">
+</div>
+
 ## Technologies
 
 - [Ruby on Rails](https://rubyonrails.org/), as the main web framework.
