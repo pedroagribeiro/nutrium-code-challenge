@@ -145,3 +145,27 @@ bin/dev
 ```
 
 ## Notes
+
+## Caching strategy
+
+## Advanced Search
+
+Used elasticsearch to help with the searches, created indexes for both
+"professionals" and "services".
+
+The "professionals" index is composed by the following fields:
+
+- `name` (since the advanced search is supposed to search for the professionals name).
+- `license_number` (simply because I took the liberty of adding, because I
+  though it makes sense in the use case.).
+- `service_names` (since the advanced search is supposed to provide the
+  capability to search for the service names of the services provided by the
+  desired nutritionist).
+
+## Utility-First CSS
+
+Use tailwindCSS and headless UI for some components.
+
+## Internationalization (i18n)
+
+Is supported.
