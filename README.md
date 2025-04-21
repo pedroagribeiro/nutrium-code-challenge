@@ -85,7 +85,7 @@ Implementation of the code challenge pruposed by Nutrium.
 - [x] Include a `README.md` file with:
   - [x] Setup instructions.
   - [x] How to run the application.
-  - [ ] Any other relevant notes or decisions.
+  - [x] Any other relevant notes or decisions.
 - [x] Include _seeds_ that:
   - Create multiple nutritionists.
   - Assign services with different prices and locations.
@@ -122,6 +122,11 @@ bundle install
 npm install
 
 # Setup PostgreSQL and Elasticsearch instances
+bin/env/start
+
+# If, for some reason you want to destroy your development environment and start
+# again, just run the following commands.
+bin/env/destroy
 bin/env/start
 
 # Force the schema on to the database and populate it with data
