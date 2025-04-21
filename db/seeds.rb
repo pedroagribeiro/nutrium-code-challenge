@@ -39,6 +39,7 @@ p "Created #{ProfessionalCategory.count} professional categories"
     license_number: Faker::Number.number(digits: 5),
     professional_category_id: ProfessionalCategory.pluck(:id).sample
   )
+
 end
 
 p "Created #{Professional.count} professionals"
@@ -75,6 +76,8 @@ p "Created #{Service.count} services"
     professional_id: professional.id,
     service_id: service&.id
   )
+
+  professional.__elasticsearch__.index_document if professional.persisted?
 end
 
 p "Created #{Appointment.count} appointments"
