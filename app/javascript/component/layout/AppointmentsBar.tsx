@@ -3,18 +3,10 @@ import { useTranslation } from 'react-i18next';
 import AppointmentPaginator from '../navigation/AppointmentPaginator';
 
 type AppointmentsBarProps = {
-  setPreviousPage: () => void;
-  setNextPage: () => void;
-  existsPreviousPage: () => boolean;
-  existsNextPage: () => boolean;
+  listLength: number;
 };
 
-const AppointmentsBar: React.FC<AppointmentsBarProps> = ({
-  setPreviousPage,
-  setNextPage,
-  existsPreviousPage,
-  existsNextPage,
-}) => {
+const AppointmentsBar: React.FC<AppointmentsBarProps> = ({ listLength }) => {
   const { t } = useTranslation();
 
   return (
@@ -24,12 +16,7 @@ const AppointmentsBar: React.FC<AppointmentsBarProps> = ({
         <p className="text-sm">{t('appointments.subtitle')}</p>
       </div>
       <div className="flex items-center gap-4">
-        <AppointmentPaginator
-          setPrevious={setPreviousPage}
-          existsPrevious={existsPreviousPage}
-          setNext={setNextPage}
-          existsNext={existsNextPage}
-        />
+        <AppointmentPaginator listLength={listLength} />
         <button className="px-2 py-1 rounded-xs border-1 border-gray-300 hover:bg-gray-200">
           <ShareIcon className="w-3 h-3 text-gray-600" />
         </button>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import AppointmentComponent from '../../component/appointments/Appointment';
 import AppointmentsPageLayout from '../../layout/AppointmentsPageLayout';
 import { Appointment } from '../../types/appointments.types';
@@ -6,6 +6,7 @@ import React from 'react';
 import Loading from '../../component/ui/Loading';
 import NoResultsFound from '../../component/ui/NoResultFound';
 import { useTranslation } from 'react-i18next';
+import { useAppointmentsPagination, PAGE_SIZE } from '../../context/AppointmentsPaginationContext';
 
 type IndexProps = {
   appointments: Appointment[] | undefined;
@@ -16,7 +17,7 @@ const Index: React.FC<IndexProps> = ({ appointments, newAppointment }) => {
   const { t } = useTranslation();
   const [appointmentList, setAppointmentList] = useState<Appointment[]>(appointments || []);
   const [isLoading, setLoading] = useState<boolean>(true);
-  const [page, setPage] = useState<number>(1);
+  const { page } = useAppointmentsPagination();
 
   useEffect(() => {
     setAppointmentList(appointments || []);
@@ -29,17 +30,17 @@ const Index: React.FC<IndexProps> = ({ appointments, newAppointment }) => {
     }
   }, [newAppointment]);
 
+  const paginatedAppointments = useMemo(() => {
+    return appointmentList.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  }, [appointmentList, page]);
+
   const displayResults = () => {
     if (appointmentList.length > 0) {
-      const startIndex = (page - 1) * 6;
-      const endIndex = startIndex + 6;
       return (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {appointmentList
-            .slice(startIndex, endIndex)
-            .map((appointment: Appointment, index: number) => (
-              <AppointmentComponent key={index} appointment={appointment} />
-            ))}
+          {paginatedAppointments.map((appointment: Appointment, index: number) => (
+            <AppointmentComponent key={index} appointment={appointment} />
+          ))}
         </div>
       );
     } else {
@@ -47,31 +48,9 @@ const Index: React.FC<IndexProps> = ({ appointments, newAppointment }) => {
     }
   };
 
-  const setPreviousPage = () => {
-    setPage(page - 1);
-  };
-
-  const setNextPage = () => {
-    setPage(page + 1);
-  };
-
-  const existsPreviousPage = () => {
-    return page > 1 && page !== 1;
-  };
-
-  const existsNextPage = () => {
-    // Page size is 6
-    return page * 6 < appointmentList.length;
-  };
-
   // NOTE: In this appointments being undefined is equivalent to Loading state
   return (
-    <AppointmentsPageLayout
-      setPreviousPage={setPreviousPage}
-      setNextPage={setNextPage}
-      existsPreviousPage={existsPreviousPage}
-      existsNextPage={existsNextPage}
-    >
+    <AppointmentsPageLayout listLength={appointmentList.length}>
       {isLoading ? <Loading message={t('messages.loading')} /> : displayResults()}
     </AppointmentsPageLayout>
   );
